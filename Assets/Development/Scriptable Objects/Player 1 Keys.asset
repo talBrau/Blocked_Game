@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998387cd555339c42b2837cc9e295805, type: 3}
   m_Name: Player 1 Keys
   m_EditorClassIdentifier: 
-  up: 0
-  down: 0
-  right: 0
-  left: 0
+  up: 119
+  down: 115
+  right: 100
+  left: 97
