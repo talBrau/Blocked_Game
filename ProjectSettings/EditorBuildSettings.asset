@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Testing-Arnon.unity
+    path: Assets/Scenes/TalScene.unity
     guid: 2ac6b37353ab89544848897a57834d2f
   m_configObjects: {}

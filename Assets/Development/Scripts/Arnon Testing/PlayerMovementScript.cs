@@ -7,20 +7,19 @@ public class PlayerMovementScript : MonoBehaviour
     #region Inspector
     
     [SerializeField] private PlayerMovementKeys playerKeys;
-    [SerializeField] private float speed = 6;
+    [SerializeField] private int speed = 6;
     [SerializeField] private Tilemap groundTileMap;
     [SerializeField] private Tilemap WallTileMap;
-    [SerializeField] private GameObject TargetPosition;
-
+    
     #endregion
 
     #region Fields
     
-    private Vector3 _direction = Vector2.zero;
-    public Vector3 Direction => _direction;
+    private Vector3Int _direction = Vector3Int.zero;
+    public Vector3Int Direction => _direction;
 
-    private Vector3 _lastDir;
-    public Vector3 LastDir => _lastDir;
+    private Vector3Int _lastDir;
+    public Vector3Int LastDir => _lastDir;
     
     private Rigidbody2D _rb;
     private PlayerManager _playerManager;
@@ -32,7 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _lastDir = Vector3.up;
+        _lastDir = Vector3Int.up;
         _playerManager = GetComponent<PlayerManager>();
     }
 
@@ -50,8 +49,8 @@ public class PlayerMovementScript : MonoBehaviour
     #region Methods
     private void CheckInput()
     {
-        float xDir = 0;
-        float yDir = 0;
+        int xDir = 0;
+        int yDir = 0;
         if (Input.GetKey(playerKeys.Up))
             yDir = 1;
         else if (Input.GetKey(playerKeys.Down))
@@ -60,40 +59,32 @@ public class PlayerMovementScript : MonoBehaviour
             xDir = -1;
         else if (Input.GetKey(playerKeys.Right))
             xDir = 1;
-        _direction = new Vector3(xDir, yDir,0);
-        Vector3Int gridPos = groundTileMap.WorldToCell(transform.position + _direction);
-        if (!canMove(gridPos))
-        {
-            _direction = Vector3.zero;
-            // TargetPosition.transform.position = groundTileMap.CellToWorld(gridPos);;
-        }
-
-        if (_playerManager.CurrentHoldTile)
-        {
-            LayerMask mask = LayerMask.GetMask("Wall");
-            if (Physics2D.CircleCastAll(_playerManager.CurrentHoldTile.transform.position,
-                0.01f, _direction, 0.01f, mask).Length != 0)
-            {
-                print("hit");
-                _direction = Vector3.zero;
-            }
-                
-        }
+        _direction = new Vector3Int(xDir, yDir,0);
         
+        // Vector3Int gridPos = groundTileMap.WorldToCell(transform.position + _direction);
+        // if (!canMove(gridPos))
+        // {
+        //     _direction = Vector3.zero;
+        //     // TargetPosition.transform.position = groundTileMap.CellToWorld(gridPos);;
+        // }
+
         if (_direction != _lastDir && _direction != Vector3.zero)
             _lastDir = _direction;
     }
     
     private void FixedUpdate()
     {
-        _rb.velocity = _direction * speed;
+        var velX = _direction.x * speed;
+        var velY = _direction.y * speed;
+        _rb.velocity = new Vector2(velX, velY);
     }
 
-    private bool canMove(Vector3Int gridPos)
-    {
-        if (!groundTileMap.HasTile(gridPos) || WallTileMap.HasTile(gridPos))
-            return false;
-        return true;
-    }
+    // private bool canMove(Vector3Int gridPos)
+    // {
+    //     if (!groundTileMap.HasTile(gridPos) || WallTileMap.HasTile(gridPos))
+    //         return false;
+    //     return true;
+    // }
+    
     #endregion
 }

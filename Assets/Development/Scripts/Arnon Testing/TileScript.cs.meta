@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: c4e901c541f521c4786b7ec8c40adf08
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wallsTilemap: {fileID: 4814550416952456676, guid: 2b3a277d962f2d04aa95e221e1d3e97a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
