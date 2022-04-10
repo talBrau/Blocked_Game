@@ -463,7 +463,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124433613}
-  - component: {fileID: 124433612}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -471,23 +470,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &124433612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124433611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aff46e8411226b43872fb30e7c2139a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playersList:
-  - {fileID: 452843827}
-  - {fileID: 1196907759}
-  - {fileID: 1177490426}
-  - {fileID: 275874489}
 --- !u!4 &124433613
 Transform:
   m_ObjectHideFlags: 0
@@ -13412,7 +13394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9a15081710461459e147e651cacc6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneManager: {fileID: 124433612}
+  _sceneManager: {fileID: 0}
   _grid: {fileID: 0}
 --- !u!1001 &283026464
 PrefabInstance:
@@ -14059,7 +14041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9a15081710461459e147e651cacc6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneManager: {fileID: 124433612}
+  _sceneManager: {fileID: 0}
   _grid: {fileID: 1254294190}
 --- !u!1001 &473063912
 PrefabInstance:
@@ -16474,7 +16456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9a15081710461459e147e651cacc6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneManager: {fileID: 124433612}
+  _sceneManager: {fileID: 0}
   _grid: {fileID: 0}
 --- !u!1001 &1183293304
 PrefabInstance:
@@ -16687,7 +16669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9a15081710461459e147e651cacc6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneManager: {fileID: 124433612}
+  _sceneManager: {fileID: 0}
   _grid: {fileID: 1254294190}
 --- !u!1001 &1203200279
 PrefabInstance:

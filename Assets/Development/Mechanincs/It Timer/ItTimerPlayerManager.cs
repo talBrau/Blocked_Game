@@ -1,13 +1,12 @@
 using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerManager : MonoBehaviour
+public class ItTimerPlayerManager : MonoBehaviour
 {
     #region Inspector
 
-    [SerializeField] private SceneManager _sceneManager;
+    [SerializeField] private ItTimerSceneManager _sceneManager;
     [SerializeField] private Grid _grid;
 
     #endregion
@@ -77,20 +76,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            var map = other.collider.GetComponent<Tilemap>();
-            var grid = map.layoutGrid;
-
-            // Find the coordinates of the tile we hit.
-            var contact = other.GetContact(0);
-            Vector3 contactPoint = contact.point;
-            print(contactPoint);
-            Vector3Int cell = grid.WorldToCell(contactPoint);
-            // Extract the tile asset at that location.
-            var tile = map.GetTile(cell);
-            if(tile == null)
-                print("none");
-            else 
-                map.SetTile(cell,null);
         }
     }
 

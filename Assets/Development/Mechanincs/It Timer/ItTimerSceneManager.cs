@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SceneManager : MonoBehaviour
+public class ItTimerSceneManager : MonoBehaviour
 {
     #region Inspector
 
@@ -90,15 +90,15 @@ public class SceneManager : MonoBehaviour
     {
         player.GetComponent<SpriteRenderer>().color = _itColor;
         player.gameObject.tag = "It";
-        player.GetComponent<PlayerManager>().PlayerState = PlayerManager.State.It;
+        player.GetComponent<ItTimerPlayerManager>().PlayerState = ItTimerPlayerManager.State.It;
         _currentRoundsIts.Add(player);
     }
 
     public void ChangeToRunner(GameObject player)
     {
-        player.GetComponent<SpriteRenderer>().color = player.GetComponent<PlayerManager>().InitialColor;
+        player.GetComponent<SpriteRenderer>().color = player.GetComponent<ItTimerPlayerManager>().InitialColor;
         player.gameObject.tag = "Runner";
-        player.GetComponent<PlayerManager>().PlayerState = PlayerManager.State.Runner;
+        player.GetComponent<ItTimerPlayerManager>().PlayerState = ItTimerPlayerManager.State.Runner;
     }
 
     #endregion
@@ -118,7 +118,7 @@ public class SceneManager : MonoBehaviour
         GameObject curWinner = null;
         foreach (var player in playersList)
         {
-            float playerCounter = player.GetComponent<PlayerManager>().ItCounter;
+            float playerCounter = player.GetComponent<ItTimerPlayerManager>().ItCounter;
             print(player.gameObject.name + " 'It' time is: " + playerCounter);
             if (playerCounter < curBest)
             {
