@@ -7,14 +7,15 @@ TagManager:
   - It
   - Runner
   - Wall
+  - Monster
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - monster
   - 
   - 
   - 
