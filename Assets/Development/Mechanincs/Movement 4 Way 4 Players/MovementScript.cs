@@ -34,14 +34,17 @@ public class MovementScript : MonoBehaviour
     #region Methods
     private void CheckInput()
     {
-        if (Input.GetKeyDown(playerKeys.Up))
-            _direction = Vector2.up;
-        else if (Input.GetKeyDown(playerKeys.Down))
-            _direction = Vector2.down;
-        else if (Input.GetKeyDown(playerKeys.Left))
-            _direction = Vector2.left;
-        else if (Input.GetKeyDown(playerKeys.Right))
-            _direction = Vector2.right;
+        float xDir = 0;
+        float yDir = 0;
+        if (Input.GetKey(playerKeys.Up))
+            yDir = 1;
+        else if (Input.GetKey(playerKeys.Down))
+            yDir = -1;
+        if (Input.GetKey(playerKeys.Left))
+            xDir = -1;
+        else if (Input.GetKey(playerKeys.Right))
+            xDir = 1;
+        _direction = new Vector2(xDir, yDir);
     }
 
     private void FixedUpdate()
