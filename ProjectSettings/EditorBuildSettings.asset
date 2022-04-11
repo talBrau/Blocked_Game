@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Merged.unity
+    path: Assets/Scenes/Prototype.unity
     guid: e83a41139034f4162b356f4019f0609b
   m_configObjects: {}
