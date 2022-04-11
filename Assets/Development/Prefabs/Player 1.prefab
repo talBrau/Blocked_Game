@@ -98,7 +98,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -137,8 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerKeys: {fileID: 11400000, guid: 5b1edb79661fe7e419750b0a42616ce7, type: 2}
   speed: 4
-  groundTileMap: {fileID: 0}
-  WallTileMap: {fileID: 0}
 --- !u!114 &3343935327133770484
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12958,6 +12958,14 @@ PrefabInstance:
       propertyPath: walls
       value: 
       objectReference: {fileID: 738056960}
+    - target: {fileID: 1389696574705332431, guid: 10c9e6a0c15804591ba27caf369aab0b, type: 3}
+      propertyPath: WallTileMap
+      value: 
+      objectReference: {fileID: 738056963}
+    - target: {fileID: 1389696574705332431, guid: 10c9e6a0c15804591ba27caf369aab0b, type: 3}
+      propertyPath: groundTileMap
+      value: 
+      objectReference: {fileID: 230876288}
     - target: {fileID: 1389696574705332435, guid: 10c9e6a0c15804591ba27caf369aab0b, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -14126,10 +14134,6 @@ PrefabInstance:
     - target: {fileID: 3343935327133770480, guid: 0d4f6ea8c15d344feabc7571609b38b6, type: 3}
       propertyPath: m_Name
       value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3343935327133770480, guid: 0d4f6ea8c15d344feabc7571609b38b6, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3343935327133770484, guid: 0d4f6ea8c15d344feabc7571609b38b6, type: 3}
       propertyPath: walls
