@@ -14027,8 +14027,8 @@ GameObject:
   - component: {fileID: 502146860}
   - component: {fileID: 502146859}
   m_Layer: 0
-  m_Name: Monsters
-  m_TagString: Untagged
+  m_Name: Monster Controller
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14045,8 +14045,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449d1b13d0eb445efb98940935e70fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpwan: 0
+  spawnRate: 5
   monsterPrefab: {fileID: 4538544647189875055, guid: 4a4d7213f648a4e66ba7107892b49452, type: 3}
+  players:
+  - {fileID: 1582023342}
+  - {fileID: 654917406}
 --- !u!4 &502146860
 Transform:
   m_ObjectHideFlags: 0
@@ -14246,6 +14249,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5150466889257248707, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   m_PrefabInstance: {fileID: 647817492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &654917406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7798150732691567032, guid: bc17dedfefc264a46b20afc3210756bd, type: 3}
+  m_PrefabInstance: {fileID: 7798150731506068809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &678075530
 PrefabInstance:
@@ -17389,6 +17397,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5150466889257248707, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   m_PrefabInstance: {fileID: 1529163384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1582023342 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2201793686728734265, guid: d723b959486e54a75ab2314061040fa5, type: 3}
+  m_PrefabInstance: {fileID: 2201793687108988684}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1609457595
 PrefabInstance:

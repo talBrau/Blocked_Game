@@ -135,9 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 10
-  players:
-  - {fileID: 2201793686728734265, guid: d723b959486e54a75ab2314061040fa5, type: 3}
-  - {fileID: 7798150732691567032, guid: bc17dedfefc264a46b20afc3210756bd, type: 3}
   maxTimeOnWall: 3
-  monsterSpeed: 3
-  TimeUntillDead: 30
+  monsterSpeed: 1
+  timeUntillDead: 20
