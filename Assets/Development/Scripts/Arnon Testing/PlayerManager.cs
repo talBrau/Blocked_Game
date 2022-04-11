@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -16,43 +15,34 @@ public class PlayerManager : MonoBehaviour
 
     #region fields
 
-    private bool _initTileFlag;
-    private bool _moveTileFlag;
+    private bool _initTileFlag = true;
+    private GameObject _nearTile;
     private GameObject _currentHoldTile;
-    public GameObject CurrentHoldTile => _currentHoldTile;
-    private PlayerMovementScript _playerMovementScript;
-    
+
     #endregion
 
     #region MonoBehaviour
 
-    private void Start()
-    {
-        _playerMovementScript = GetComponent<PlayerMovementScript>();
-    }
-
     private void Update()
     {
         checkInput();
-        // var map = WallTileMap.WorldToCell(transform.position);
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     print(map);
-        // }
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     var world = WallTileMap.CellToWorld(map);
-        //     print(world);
-        // }
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall") && _moveTileFlag && !_currentHoldTile)
+        if (other.gameObject.CompareTag("Wall") && !_currentHoldTile)
         {
-            _currentHoldTile = other.gameObject;
-            other.gameObject.transform.parent = gameObject.transform;
-            _currentHoldTile.layer = 8;
+            other.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            _nearTile = other.gameObject;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall") && _nearTile)
+        {
+            _nearTile.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            _nearTile = null;
         }
     }
 
@@ -62,33 +52,16 @@ public class PlayerManager : MonoBehaviour
 
     private void checkInput()
     {
-        if (Input.GetKeyDown(_playerActionKeys.InstantiateTile))
+        if (Input.GetKeyDown(_playerActionKeys.InstantiateTile) && _initTileFlag)
             InstantiateTile();
-
-        // else if (Input.GetKey(_playerActionKeys.MoveTile))
-        //     _moveTileFlag = true;
-        // else if (Input.GetKeyUp(_playerActionKeys.MoveTile))
-        // {
-        //     _moveTileFlag = false;
-        //     if (_currentHoldTile)
-        //     {
-        //         _currentHoldTile.transform.parent = walls.transform;
-        //         _currentHoldTile.layer = 7;
-        //         _currentHoldTile = null;
-        //     }
-        // }
+        else if (Input.GetKeyDown(_playerActionKeys.MoveTile) && (_nearTile || _currentHoldTile))
+            MoveTile();
     }
 
     private void InstantiateTile()
     {
-        _initTileFlag = !_initTileFlag;
-        if (_initTileFlag)
+        if (!_currentHoldTile)
         {
-            // var dir = _playerMovementScript.Direction;
-            // if (dir == Vector3.zero)
-            //     dir = _playerMovementScript.LastDir;
-            // Vector3Int gridPos = groundTileMap.WorldToCell(transform.position + (dir));
-            // var tilePos = groundTileMap.CellToWorld(gridPos);
             var newtile = Instantiate(tile, transform.position, transform.rotation, walls.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
             _currentHoldTile = newtile;
@@ -99,13 +72,22 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = null;
         }
     }
-    
-    private bool canMove(Vector3Int gridPos)
+
+    private void MoveTile()
     {
-        if (!groundTileMap.HasTile(gridPos) || WallTileMap.HasTile(gridPos)|| 
-            gridPos == groundTileMap.CellToWorld(groundTileMap.WorldToCell(transform.position)))
-            return false;
-        return true;
+        if (!_currentHoldTile)
+        {
+            _initTileFlag = false;
+            _currentHoldTile = _nearTile;
+            _nearTile = null;
+            _currentHoldTile.GetComponent<TileScript>().setMovingTile(gameObject);
+        }
+        else
+        {
+            _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
+            _currentHoldTile = null;
+            _initTileFlag = true;
+        }
     }
 
     #endregion
