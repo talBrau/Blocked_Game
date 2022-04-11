@@ -43,6 +43,7 @@ public class TileScript : MonoBehaviour
         //     transform.position = _groundTilemap.CellToWorld(tilePos);
         // }
         _moving = false;
+        
         GetComponent<EdgeCollider2D>().isTrigger = false;
         GetComponent<SpriteRenderer>().color = Color.white;
     }

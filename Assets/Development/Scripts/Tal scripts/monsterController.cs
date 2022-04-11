@@ -21,8 +21,9 @@ public class monsterController : MonoBehaviour
     private float _timeOnWall = 0;
     private GameObject _curTile = null;
     private Transform _target;
+
     private float _timeAlive;
-    private Color _defaultTileColor;
+    // private Color _defaultTileColor;
 
     #endregion
 
@@ -54,13 +55,11 @@ public class monsterController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         GameObject obj = col.gameObject;
-        if (!_isTouchingWall && obj.name == "Wall Tile")
+        if (!_isTouchingWall && obj.CompareTag("Wall"))
         {
             //change color of tile to indicate its being eaten
-            var tileSpriteRenderer = obj.GetComponent<SpriteRenderer>();
-            _defaultTileColor = tileSpriteRenderer.color;
-            tileSpriteRenderer.color = new Color(_defaultTileColor.r, _defaultTileColor.g, _defaultTileColor.b, 0.8f);
-
+            obj.GetComponent<SpriteRenderer>().color = Color.gray;
+            print("gray?");
             _isTouchingWall = true;
             _timeOnWall = 0;
             _curTile = obj;
@@ -72,7 +71,7 @@ public class monsterController : MonoBehaviour
             Destroy(obj);
             if (_monsterManager.GetPlayersCount == 0) //endgame
             {
-                SceneManager.LoadScene("TalScene");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
             Destroy(gameObject);
@@ -101,7 +100,7 @@ public class monsterController : MonoBehaviour
         {
             if (_curTile != null)
             {
-                _curTile.GetComponent<SpriteRenderer>().color = _defaultTileColor;
+                _curTile.GetComponent<SpriteRenderer>().color = Color.white;
             }
 
             Destroy(gameObject);

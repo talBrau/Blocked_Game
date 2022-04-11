@@ -125,5 +125,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e901c541f521c4786b7ec8c40adf08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallsTilemap: {fileID: 4814550416952456676, guid: 2b3a277d962f2d04aa95e221e1d3e97a, type: 3}
-  groundTileMap: {fileID: 5142348760153966698, guid: 737052c3e8a28dd40a0a40a30fdaec55, type: 3}
