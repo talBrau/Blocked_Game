@@ -8,7 +8,6 @@ public class TileScript : MonoBehaviour
     private GameObject _player;
     private Tilemap _wallsTilemap;
     private Tilemap _groundTilemap;
-    private PlayerMovementScript _playerMovementScript;
     private PlayerManager _playerScript;
     private bool _moving;
 
@@ -19,9 +18,8 @@ public class TileScript : MonoBehaviour
         _moving = true;
         _player = player;
         _playerScript = _player.GetComponent<PlayerManager>();
-        _playerMovementScript = _player.GetComponent<PlayerMovementScript>();
         _wallsTilemap = _playerScript.WallTileMap;
-        _groundTilemap = _playerScript.groundTileMap;
+        _groundTilemap = _playerScript.GroundTileMap;
         GetComponent<EdgeCollider2D>().isTrigger = true;
         GetComponent<SpriteRenderer>().color = Color.gray;
     }
@@ -39,9 +37,9 @@ public class TileScript : MonoBehaviour
         if (!_moving)
             return;
 
-        var playerDir = _playerMovementScript.Direction;
+        var playerDir = _playerScript.Direction;
         if (playerDir == Vector3.zero)
-            playerDir = _playerMovementScript.LastDir;
+            playerDir = _playerScript.LastDir;
         Vector3 check = playerDir;
         var temp = _player.transform.position + playerDir + check * 0.7f;
         Vector3Int gridPos = _groundTilemap.WorldToCell(temp);

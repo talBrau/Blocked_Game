@@ -3,23 +3,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    #region Inspector
-
-    [SerializeField] private PlayersSpawnManager _playersSpawnManager;
-
-    #endregion
-
+    
     #region fields
 
     private GameObject _playersManager;
     private GameObject player;
-    private testingPlayerManager _testingPlayerManager;
+    private PlayerManager _PlayerManager;
 
     #endregion
 
     void Start()
     {
         _playersManager = GameObject.Find("Players Manager");
+        PlayersSpawnManager _playersSpawnManager = _playersManager.GetComponent<PlayersSpawnManager>();
         gameObject.name = "Player " + (5 - _playersSpawnManager.playersPrefabs.Count);
         transform.parent = _playersManager.transform;
         
@@ -27,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
         player = Instantiate(_playersSpawnManager.playersPrefabs[ind],
                               _playersSpawnManager.playerInitialPositions[ind], transform.rotation, transform);
         
-        _testingPlayerManager = player.GetComponent<testingPlayerManager>();
+        _PlayerManager = player.GetComponent<PlayerManager>();
         
         _playersSpawnManager.playersPrefabs.Remove(_playersSpawnManager.playersPrefabs[ind]);
         _playersSpawnManager.playerInitialPositions.Remove(_playersSpawnManager.playerInitialPositions[ind]);
@@ -35,20 +31,20 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        _testingPlayerManager.Move(context.ReadValue<Vector2>());
+        _PlayerManager.Move(context.ReadValue<Vector2>());
     }
 
     public void InstantiateTile(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
-        _testingPlayerManager.InstantiateTile();
+        _PlayerManager.InstantiateTile();
     }
 
     public void MoveTile(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
-        _testingPlayerManager.MoveTile();
+        _PlayerManager.MoveTile();
     }
 }
