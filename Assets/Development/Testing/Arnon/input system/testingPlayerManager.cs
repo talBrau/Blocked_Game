@@ -4,22 +4,32 @@ using UnityEngine.Tilemaps;
 public class testingPlayerManager : MonoBehaviour
 {
     #region Inspector
-    
-    [SerializeField] private GameObject tile;
 
+    [SerializeField] private float moveSpeed = 4;
+    [SerializeField] private GameObject tile;
 
     #endregion
 
     #region fields
-    
+
+    // Movement
+    private Vector3 _direction = Vector3.zero;
+    public Vector3 Direction => _direction;
+    private Vector3 _lastDir = Vector3.up;
+    public Vector3 LastDir => _lastDir;
+
+    // components
+    private Rigidbody2D _rb;
+
+    // create & move tiles
     private GameObject wallsObject;
     private GameObject groundObject;
-    
+
     private Tilemap groundTileMap;
     public Tilemap GroundTileMap => groundTileMap;
     private Tilemap wallTileMap;
     public Tilemap WallTileMap => wallTileMap;
-    
+
     private bool _initTileFlag = true;
     private GameObject _nearTile;
     private GameObject _currentHoldTile;
@@ -34,6 +44,7 @@ public class testingPlayerManager : MonoBehaviour
         wallTileMap = wallsObject.GetComponent<Tilemap>();
         groundObject = GameObject.Find("Ground");
         groundTileMap = groundObject.GetComponent<Tilemap>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -54,10 +65,22 @@ public class testingPlayerManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        _rb.velocity = _direction * moveSpeed;
+    }
+
     #endregion
 
     #region Methods
 
+    public void Move(Vector2 input)
+    {
+        _direction = input;
+        if (_direction != _lastDir && _direction != Vector3.zero)
+            _lastDir = _direction;
+    }
+    
     public void InstantiateTile()
     {
         if (!_initTileFlag)
@@ -75,12 +98,12 @@ public class testingPlayerManager : MonoBehaviour
             _currentHoldTile = null;
         }
     }
- 
+
     public void MoveTile()
     {
         if (!(_nearTile || _currentHoldTile))
             return;
-        
+
         if (!_currentHoldTile)
         {
             _initTileFlag = false;
@@ -95,6 +118,7 @@ public class testingPlayerManager : MonoBehaviour
             _initTileFlag = true;
         }
     }
+    
 
     #endregion
 }
