@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8851802570420706186, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: m_Name
-      value: MonsterManager
+      value: Monster Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: spawnRate

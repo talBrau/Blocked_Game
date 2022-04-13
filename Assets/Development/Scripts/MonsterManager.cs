@@ -12,7 +12,7 @@ public class MonsterManager : MonoBehaviour
 
     [SerializeField] private float spawnRate;
     [SerializeField] private GameObject monsterPrefab;
-    [SerializeField] private List<Transform> players;
+    public List<Transform> players;
 
     #endregion
 

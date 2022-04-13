@@ -27,6 +27,9 @@ public class PlayerInputHandler : MonoBehaviour
         
         _playersSpawnManager.playersPrefabs.Remove(_playersSpawnManager.playersPrefabs[ind]);
         _playersSpawnManager.playerInitialPositions.Remove(_playersSpawnManager.playerInitialPositions[ind]);
+        
+        var monsterManager = GameObject.Find("Monster Manager");
+        monsterManager.GetComponent<MonsterManager>().players.Add(transform);
     }
 
     public void Move(InputAction.CallbackContext context)
