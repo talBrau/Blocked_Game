@@ -12,14 +12,7 @@ public class sceneManger : MonoBehaviour
         _readyCounter += 1;
         if (_readyCounter == playersSpawnManager.playersSpawned)
         {
-            onBoarding = false;
             monsterManager.GetComponent<MonsterManager>().stopOnBoarding();
         }
     }
-    
-    private void Awake()
-    {
-        onBoarding = true;
-    }
-    
 }

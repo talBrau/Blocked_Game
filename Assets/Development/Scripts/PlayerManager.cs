@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        sceneManager = GameObject.Find("Scene Manager");
+        sceneManager = GameObject.Find("GameManager");
         wallsObject = GameObject.Find("Walls");
         wallTileMap = wallsObject.GetComponent<Tilemap>();
         groundObject = GameObject.Find("Ground");
@@ -113,6 +113,13 @@ public class PlayerManager : MonoBehaviour
     {
         if (!_currentHoldTile && _canBuy)
         {
+            if (GameManager.Score < GameManager.WallTilePrice)
+            {
+                print("Score to low");
+                return;
+            }
+            
+            GameManager.Score -= GameManager.WallTilePrice;
             var newtile = Instantiate(wallTile, transform.position, transform.rotation, wallsObject.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
             _currentHoldTile = newtile;
@@ -128,6 +135,14 @@ public class PlayerManager : MonoBehaviour
     {
         if (!_currentHoldTile && _canBuy)
         {
+            if (GameManager.Score < GameManager.ExplodingTilePrice)
+            {
+                // TODO
+                print("Score to low");
+                return;
+            }
+            
+            GameManager.Score -= GameManager.ExplodingTilePrice;
             var newtile = Instantiate(tntTile, transform.position, transform.rotation, wallsObject.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
             _currentHoldTile = newtile;
@@ -162,7 +177,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SetReady()
     {
-        sceneManager.GetComponent<sceneManger>().increaseReadyCounter();
+        sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
 
     public void DetonateTnt()
