@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7932724438151317374}
   - component: {fileID: 7932724438151317372}
   - component: {fileID: 692766545048633116}
+  - component: {fileID: 9187880348362456324}
   m_Layer: 7
   m_Name: Exploding Tile
   m_TagString: Wall
@@ -124,3 +125,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+--- !u!114 &9187880348362456324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932724438151317373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd32d5d50a614b17b7c791591b763d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  radius: 5
+  explosionForce: 5000
