@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8918468411528286363}
   - component: {fileID: 8918468411528286361}
   - component: {fileID: 8918468411528286362}
-  - component: {fileID: 8918468411528286360}
+  - component: {fileID: 6205228632404034443}
   m_Layer: 0
   m_Name: Base
   m_TagString: Base
@@ -111,7 +111,7 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &8918468411528286360
+--- !u!114 &6205228632404034443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8918468411528286340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a0e26854b5a1a4c94908dda1f78bc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9847d7351637c174abf6109ff4b4c730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 5
