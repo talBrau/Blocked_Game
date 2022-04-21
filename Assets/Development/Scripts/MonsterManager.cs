@@ -23,7 +23,7 @@ public class MonsterManager : MonoBehaviour
     #endregion
 
     #region MonoBehaviour
-
+    
     void Start()
     {
         //get center of screen in world
@@ -41,8 +41,10 @@ public class MonsterManager : MonoBehaviour
 
     private IEnumerator SpawnMonster(float sec)
     {
+        
         while (true)
         {
+            print("start");
             float distance = Random.Range(_minRadius, _maxRadius); //get radius
             float angle = Random.Range(-Mathf.PI, Mathf.PI); // get angle
             Vector2 spawnPos = transform.position; // middle of screen
@@ -56,6 +58,7 @@ public class MonsterManager : MonoBehaviour
     public Transform GetPlayerI(int i) => players[i];
 
     public void RemovePlayer(Transform player) => players.Remove(player);
+    
 
     #endregion
 }
