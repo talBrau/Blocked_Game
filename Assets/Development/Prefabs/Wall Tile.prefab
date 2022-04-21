@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5150466889257248708}
   - component: {fileID: 5150466889257248710}
   - component: {fileID: -6849514334748221530}
+  - component: {fileID: -6514871907917497318}
   m_Layer: 7
   m_Name: Wall Tile
   m_TagString: Wall
@@ -100,15 +101,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.008760452, y: -0.4844222}
-  - {x: -0.008760452, y: -0.4844222}
+  - {x: 0.41618156, y: -0.23775458}
+  - {x: -0.00015258789, y: -0.4873171}
   - {x: -0.429245, y: -0.24246264}
-  - {x: -0.42778587, y: 0.24701881}
-  - {x: -0.0073604584, y: 0.4876523}
-  - {x: 0.41231537, y: 0.2488308}
-  - {x: 0.4117527, y: -0.24374866}
-  - {x: -0.008768082, y: -0.48456764}
-  - {x: -0.006837845, y: -0.48304415}
+  - {x: -0.42772198, y: 0.0061836243}
+  - {x: -0.009244919, y: 0.2826059}
+  - {x: 0.41227055, y: 0.06552625}
+  - {x: 0.41391754, y: -0.23759174}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -120,10 +119,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5150466889257248711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4e901c541f521c4786b7ec8c40adf08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallsTilemap: {fileID: 4814550416952456676, guid: 2b3a277d962f2d04aa95e221e1d3e97a, type: 3}
-  groundTileMap: {fileID: 5142348760153966698, guid: 737052c3e8a28dd40a0a40a30fdaec55, type: 3}
+--- !u!114 &-6514871907917497318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150466889257248711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf73498cc3b64a4fb9e76b87fc344da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMoveTransparency: 0.5

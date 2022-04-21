@@ -49,13 +49,13 @@ public class PlayerManager : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall") && !_currentHoldTile)
+        if (other.gameObject.CompareTag("Wall") && !_currentHoldTile && !_nearTile)
         {
             other.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             _nearTile = other.gameObject;
         }
     }
-
+    
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall") && _nearTile)
@@ -89,12 +89,12 @@ public class PlayerManager : MonoBehaviour
         if (!_currentHoldTile)
         {
             var newtile = Instantiate(tile, transform.position, transform.rotation, wallsObject.transform);
-            newtile.GetComponent<TileScript>().setMovingTile(gameObject);
+            newtile.GetComponent<TestTileScript>().setMovingTile(gameObject);
             _currentHoldTile = newtile;
         }
         else
         {
-            _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
+            _currentHoldTile.GetComponent<TestTileScript>().placeMovingTile();
             _currentHoldTile = null;
         }
     }
@@ -109,11 +109,13 @@ public class PlayerManager : MonoBehaviour
             _initTileFlag = false;
             _currentHoldTile = _nearTile;
             _nearTile = null;
-            _currentHoldTile.GetComponent<TileScript>().setMovingTile(gameObject);
+            _currentHoldTile.GetComponent<TestTileScript>().setMovingTile(gameObject);
         }
         else
         {
-            _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
+            if (!_currentHoldTile.GetComponent<TestTileScript>().CanPlace)
+                return;
+            _currentHoldTile.GetComponent<TestTileScript>().placeMovingTile();
             _currentHoldTile = null;
             _initTileFlag = true;
         }

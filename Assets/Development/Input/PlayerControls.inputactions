@@ -102,6 +102,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4c7697fd-b85d-4e7f-966d-a845703e2abc",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "29f30f0f-d52a-408f-82c3-60806b3ee1dc",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "Press",
