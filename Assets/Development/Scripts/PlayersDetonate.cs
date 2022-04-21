@@ -17,20 +17,23 @@ public class PlayersDetonate : MonoBehaviour
     {
         if (explodingTile.Count > 0)
         {
-            foreach (var player in _spawnManager.playersPrefabs)
+            for (int i = 0; i < _spawnManager.playersSpawned; i++)
             {
-                if (!player.GetComponent<PlayerManager>().isHoldingDetonateTrigger)
                 {
-                    readyToExplode = false;
+                    if (!_spawnManager.playersPrefabs[i].GetComponent<PlayerManager>().isHoldingDetonateTrigger)
+                    {
+                        readyToExplode = false;
+                    }
+                }
+                if (readyToExplode)
+                {
+                    foreach (var tile in explodingTile)
+                    {
+                        tile.GetComponent<explode>().explodeTile();
+                    }
                 }
             }
-            if (readyToExplode)
-            {
-                foreach (var tile in explodingTile)
-                {
-                    tile.GetComponent<explode>().explodeTile();
-                }
-            }
+            
         }
 
         

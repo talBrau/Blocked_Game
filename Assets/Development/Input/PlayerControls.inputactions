@@ -42,9 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DetonateTntTile",
+                    "type": "Button",
+                    "id": "38a1c948-8761-4d03-9b5a-63d9946f2f36",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SetReady",
                     "type": "Button",
-                    "id": "0152b6d5-6395-4a5c-b7da-3931f96712da",
+                    "id": "23d04334-a82c-4447-84a0-f9e1590127b7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -164,9 +173,20 @@
                 },
                 {
                     "name": "",
-                    "id": "0b3126ff-f222-4a1e-9c73-5e7cf2ae779f",
+                    "id": "5ef4888c-7524-42c3-9c69-1b525231e00c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DetonateTntTile",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d3f88ac-f9bd-4a31-adde-e5cab96e4ffb",
                     "path": "<Gamepad>/start",
-                    "interactions": "Hold(duration=2)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SetReady",

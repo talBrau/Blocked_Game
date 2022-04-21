@@ -64,9 +64,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""DetonateTntTile"",
+                    ""type"": ""Button"",
+                    ""id"": ""38a1c948-8761-4d03-9b5a-63d9946f2f36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""SetReady"",
                     ""type"": ""Button"",
-                    ""id"": ""0152b6d5-6395-4a5c-b7da-3931f96712da"",
+                    ""id"": ""23d04334-a82c-4447-84a0-f9e1590127b7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -186,9 +195,20 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0b3126ff-f222-4a1e-9c73-5e7cf2ae779f"",
+                    ""id"": ""5ef4888c-7524-42c3-9c69-1b525231e00c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DetonateTntTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d3f88ac-f9bd-4a31-adde-e5cab96e4ffb"",
                     ""path"": ""<Gamepad>/start"",
-                    ""interactions"": ""Hold(duration=2)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SetReady"",
@@ -206,6 +226,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_BuyWallTile = m_Player.FindAction("BuyWallTile", throwIfNotFound: true);
         m_Player_BuyTntTile = m_Player.FindAction("BuyTntTile", throwIfNotFound: true);
         m_Player_MoveTile = m_Player.FindAction("MoveTile", throwIfNotFound: true);
+        m_Player_DetonateTntTile = m_Player.FindAction("DetonateTntTile", throwIfNotFound: true);
         m_Player_SetReady = m_Player.FindAction("SetReady", throwIfNotFound: true);
     }
 
@@ -270,6 +291,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_BuyWallTile;
     private readonly InputAction m_Player_BuyTntTile;
     private readonly InputAction m_Player_MoveTile;
+    private readonly InputAction m_Player_DetonateTntTile;
     private readonly InputAction m_Player_SetReady;
     public struct PlayerActions
     {
@@ -279,6 +301,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @BuyWallTile => m_Wrapper.m_Player_BuyWallTile;
         public InputAction @BuyTntTile => m_Wrapper.m_Player_BuyTntTile;
         public InputAction @MoveTile => m_Wrapper.m_Player_MoveTile;
+        public InputAction @DetonateTntTile => m_Wrapper.m_Player_DetonateTntTile;
         public InputAction @SetReady => m_Wrapper.m_Player_SetReady;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -301,6 +324,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @MoveTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
                 @MoveTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
                 @MoveTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
+                @DetonateTntTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDetonateTntTile;
+                @DetonateTntTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDetonateTntTile;
+                @DetonateTntTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDetonateTntTile;
                 @SetReady.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
                 @SetReady.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
                 @SetReady.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
@@ -320,6 +346,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @MoveTile.started += instance.OnMoveTile;
                 @MoveTile.performed += instance.OnMoveTile;
                 @MoveTile.canceled += instance.OnMoveTile;
+                @DetonateTntTile.started += instance.OnDetonateTntTile;
+                @DetonateTntTile.performed += instance.OnDetonateTntTile;
+                @DetonateTntTile.canceled += instance.OnDetonateTntTile;
                 @SetReady.started += instance.OnSetReady;
                 @SetReady.performed += instance.OnSetReady;
                 @SetReady.canceled += instance.OnSetReady;
@@ -333,6 +362,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnBuyWallTile(InputAction.CallbackContext context);
         void OnBuyTntTile(InputAction.CallbackContext context);
         void OnMoveTile(InputAction.CallbackContext context);
+        void OnDetonateTntTile(InputAction.CallbackContext context);
         void OnSetReady(InputAction.CallbackContext context);
     }
 }

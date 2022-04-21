@@ -70,7 +70,6 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (!context.performed)
             return;
-        print("pinuk");
         _PlayerManager.SetReady();
     }
 }

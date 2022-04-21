@@ -125,6 +125,22 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4283469114256185448}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: DetonateTnt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 38a1c948-8761-4d03-9b5a-63d9946f2f36
+    m_ActionName: Player/DetonateTntTile
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4283469114256185448}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: SetReady
         m_Mode: 0
         m_Arguments:
@@ -135,8 +151,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0152b6d5-6395-4a5c-b7da-3931f96712da
-    m_ActionName: Player/SetReady[/XInputControllerWindows/start,/XInputControllerWindows1/start,/XInputControllerWindows2/start]
+    m_ActionId: 23d04334-a82c-4447-84a0-f9e1590127b7
+    m_ActionName: Player/SetReady
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
