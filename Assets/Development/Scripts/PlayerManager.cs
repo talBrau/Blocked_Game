@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
 
-
     #endregion
 
     #region fields
@@ -30,16 +29,29 @@ public class PlayerManager : MonoBehaviour
     private GameObject groundObject;
     private GameObject sceneManager;
 
+
     private Tilemap groundTileMap;
     public Tilemap GroundTileMap => groundTileMap;
     private Tilemap wallTileMap;
     public Tilemap WallTileMap => wallTileMap;
-    
+
     private GameObject _nearTile;
+
     private GameObject _currentHoldTile;
+
     //Detonate tile
     public bool isHoldingDetonateTrigger = false;
-    
+
+    //endGame
+    private bool isStandingOnButton = false;
+    [SerializeField] private PlayersDetonate _playersDetonate;
+
+    public bool IsStandingOnButton
+    {
+        get => isStandingOnButton;
+        set => isStandingOnButton = value;
+    }
+
     #endregion
 
     #region MonoBehaviour
@@ -59,7 +71,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Base"))
             _canBuy = true;
     }
-    
+
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall") && !_currentHoldTile && !_nearTile)
@@ -68,7 +80,7 @@ public class PlayerManager : MonoBehaviour
             _nearTile = other.gameObject;
         }
     }
-    
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall") && _nearTile)
@@ -96,7 +108,7 @@ public class PlayerManager : MonoBehaviour
         if (_direction != _lastDir && _direction != Vector3.zero)
             _lastDir = _direction;
     }
-    
+
     public void BuyWallTile()
     {
         if (!_currentHoldTile && _canBuy)
@@ -111,7 +123,7 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = null;
         }
     }
-    
+
     public void BuyTntTile()
     {
         if (!_currentHoldTile && _canBuy)
@@ -152,10 +164,22 @@ public class PlayerManager : MonoBehaviour
     {
         sceneManager.GetComponent<sceneManger>().increaseReadyCounter();
     }
-    
+
     public void DetonateTnt()
     {
-        isHoldingDetonateTrigger = true;
+        if (isStandingOnButton)
+        {
+            _playersDetonate.IncreaseReadyDetonate();
+        }
     }
+
+    public void SetReadyEndGame()
+    {
+        if (isStandingOnButton)
+        {
+            _playersDetonate.IncreaseReadyEnd();
+        }
+    }
+
     #endregion
 }

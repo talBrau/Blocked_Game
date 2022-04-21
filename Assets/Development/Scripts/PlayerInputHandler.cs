@@ -72,4 +72,11 @@ public class PlayerInputHandler : MonoBehaviour
             return;
         _PlayerManager.SetReady();
     }
+
+    public void SetReadyEndGame(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        _PlayerManager.SetReadyEndGame();
+    }
 }

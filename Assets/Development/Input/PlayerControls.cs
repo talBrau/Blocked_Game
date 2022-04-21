@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SetReadyEndGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""7746c9bd-6818-4af1-8f95-e9b62909e8e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""SetReady"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e241c0a3-e48c-40ea-81ca-761895a86fb2"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SetReadyEndGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +248,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_MoveTile = m_Player.FindAction("MoveTile", throwIfNotFound: true);
         m_Player_DetonateTntTile = m_Player.FindAction("DetonateTntTile", throwIfNotFound: true);
         m_Player_SetReady = m_Player.FindAction("SetReady", throwIfNotFound: true);
+        m_Player_SetReadyEndGame = m_Player.FindAction("SetReadyEndGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +314,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveTile;
     private readonly InputAction m_Player_DetonateTntTile;
     private readonly InputAction m_Player_SetReady;
+    private readonly InputAction m_Player_SetReadyEndGame;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -303,6 +325,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @MoveTile => m_Wrapper.m_Player_MoveTile;
         public InputAction @DetonateTntTile => m_Wrapper.m_Player_DetonateTntTile;
         public InputAction @SetReady => m_Wrapper.m_Player_SetReady;
+        public InputAction @SetReadyEndGame => m_Wrapper.m_Player_SetReadyEndGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -330,6 +353,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SetReady.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
                 @SetReady.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
                 @SetReady.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
+                @SetReadyEndGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReadyEndGame;
+                @SetReadyEndGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReadyEndGame;
+                @SetReadyEndGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReadyEndGame;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -352,6 +378,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SetReady.started += instance.OnSetReady;
                 @SetReady.performed += instance.OnSetReady;
                 @SetReady.canceled += instance.OnSetReady;
+                @SetReadyEndGame.started += instance.OnSetReadyEndGame;
+                @SetReadyEndGame.performed += instance.OnSetReadyEndGame;
+                @SetReadyEndGame.canceled += instance.OnSetReadyEndGame;
             }
         }
     }
@@ -364,5 +393,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnMoveTile(InputAction.CallbackContext context);
         void OnDetonateTntTile(InputAction.CallbackContext context);
         void OnSetReady(InputAction.CallbackContext context);
+        void OnSetReadyEndGame(InputAction.CallbackContext context);
     }
 }

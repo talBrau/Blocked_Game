@@ -6,37 +6,36 @@ public class PlayersDetonate : MonoBehaviour
 {
     private PlayersSpawnManager _spawnManager;
     private bool readyToExplode = false;
+    private bool readyEndGame = false;
+    private int readyCountDetonate = 0;
+    private int readyCountEnd = 0;
+    
     [SerializeField] private List<GameObject> explodingTile;
     void Start()
     {
         _spawnManager = GetComponent<PlayersSpawnManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void IncreaseReadyDetonate()
     {
-        if (explodingTile.Count > 0)
+        readyCountDetonate++;
+        if (readyCountDetonate == _spawnManager.playersSpawned)
         {
-            for (int i = 0; i < _spawnManager.playersSpawned; i++)
+            foreach (var tile in explodingTile)
             {
-                {
-                    if (!_spawnManager.playersPrefabs[i].GetComponent<PlayerManager>().isHoldingDetonateTrigger)
-                    {
-                        readyToExplode = false;
-                    }
-                }
-                if (readyToExplode)
-                {
-                    foreach (var tile in explodingTile)
-                    {
-                        tile.GetComponent<explode>().explodeTile();
-                    }
-                }
+                tile.GetComponent<explode>().explodeTile();
             }
-            
         }
 
-        
-        
+        readyCountDetonate = 0;
+    }
+    public void IncreaseReadyEnd()
+    {
+        readyCountEnd++;
+        if (readyCountEnd == _spawnManager.playersSpawned)
+        {
+           print("END GAME");
+        }
+        readyCountEnd = 0;
     }
 }
