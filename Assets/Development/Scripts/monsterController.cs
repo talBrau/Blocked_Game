@@ -74,6 +74,8 @@ public class monsterController : MonoBehaviour
 
         if (obj.CompareTag("Player"))
         {
+            if (!obj.GetComponent<PlayerManager>().IsAlive)
+                return;
             obj.GetComponent<PlayerManager>().playerDead();
             if (monsterManager.GetPlayersCount == 0) //endgame
             {
