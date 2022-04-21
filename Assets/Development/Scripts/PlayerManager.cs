@@ -35,7 +35,6 @@ public class PlayerManager : MonoBehaviour
     
     private GameObject _nearTile;
     private GameObject _currentHoldTile;
-
     #endregion
 
     #region MonoBehaviour

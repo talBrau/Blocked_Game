@@ -201,6 +201,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
+      propertyPath: minWaitTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: players.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -14815,14 +14823,18 @@ Transform:
   - {fileID: 238348113}
   - {fileID: 680261684}
   - {fileID: 1639616550}
+  - {fileID: 714555218}
   - {fileID: 166928977}
+  - {fileID: 857183398}
   - {fileID: 1845494500}
+  - {fileID: 1037676630}
   - {fileID: 603516729}
   - {fileID: 1928060905}
   - {fileID: 1209165788}
   - {fileID: 1775528386}
   - {fileID: 1850669520}
   - {fileID: 659478091}
+  - {fileID: 1066718466}
   - {fileID: 377941731}
   - {fileID: 797339454}
   - {fileID: 1635243866}
@@ -14832,29 +14844,25 @@ Transform:
   - {fileID: 1889807708}
   - {fileID: 2046306283}
   - {fileID: 1111204352}
+  - {fileID: 1740321000}
+  - {fileID: 1510816155}
   - {fileID: 1972536578}
   - {fileID: 284129038}
   - {fileID: 585522280}
   - {fileID: 2025892078}
   - {fileID: 145209427}
-  - {fileID: 1740321000}
   - {fileID: 2011267090}
-  - {fileID: 866357817}
   - {fileID: 1669537424}
-  - {fileID: 714555218}
+  - {fileID: 2083009538}
   - {fileID: 463952955}
   - {fileID: 274712908}
-  - {fileID: 2083009538}
-  - {fileID: 1037676630}
   - {fileID: 712226829}
-  - {fileID: 1510816155}
   - {fileID: 482613780}
   - {fileID: 508349847}
-  - {fileID: 857183398}
   - {fileID: 877978633}
   - {fileID: 2091676041}
   - {fileID: 906486951}
-  - {fileID: 1066718466}
+  - {fileID: 866357817}
   - {fileID: 1072534590}
   - {fileID: 137532053}
   - {fileID: 978225176}
