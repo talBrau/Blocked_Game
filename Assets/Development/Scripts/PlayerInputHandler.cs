@@ -37,11 +37,18 @@ public class PlayerInputHandler : MonoBehaviour
         _PlayerManager.Move(context.ReadValue<Vector2>());
     }
 
-    public void InstantiateTile(InputAction.CallbackContext context)
+    public void BuyWallTile(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
-        _PlayerManager.InstantiateTile();
+        _PlayerManager.BuyWallTile();
+    }
+    
+    public void BuyTntTile(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        _PlayerManager.BuyTntTile();
     }
 
     public void MoveTile(InputAction.CallbackContext context)

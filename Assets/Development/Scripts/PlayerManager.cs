@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -6,7 +7,8 @@ public class PlayerManager : MonoBehaviour
     #region Inspector
 
     [SerializeField] private float moveSpeed = 4;
-    [SerializeField] private GameObject tile;
+    [SerializeField] private GameObject wallTile;
+    [SerializeField] private GameObject tntTile;
 
     #endregion
 
@@ -22,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D _rb;
 
     // create & move tiles
+    private bool _canBuy;
     private GameObject wallsObject;
     private GameObject groundObject;
 
@@ -29,8 +32,7 @@ public class PlayerManager : MonoBehaviour
     public Tilemap GroundTileMap => groundTileMap;
     private Tilemap wallTileMap;
     public Tilemap WallTileMap => wallTileMap;
-
-    private bool _initTileFlag = true;
+    
     private GameObject _nearTile;
     private GameObject _currentHoldTile;
 
@@ -47,6 +49,12 @@ public class PlayerManager : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Base"))
+            _canBuy = true;
+    }
+    
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall") && !_currentHoldTile && !_nearTile)
@@ -63,6 +71,9 @@ public class PlayerManager : MonoBehaviour
             _nearTile.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             _nearTile = null;
         }
+
+        if (other.gameObject.CompareTag("Base"))
+            _canBuy = false;
     }
 
     private void FixedUpdate()
@@ -81,23 +92,36 @@ public class PlayerManager : MonoBehaviour
             _lastDir = _direction;
     }
     
-    public void InstantiateTile()
+    public void BuyWallTile()
     {
-        if (!_initTileFlag)
-            return;
-
-        if (!_currentHoldTile)
+        if (!_currentHoldTile && _canBuy)
         {
-            var newtile = Instantiate(tile, transform.position, transform.rotation, wallsObject.transform);
-            newtile.GetComponent<TestTileScript>().setMovingTile(gameObject);
+            var newtile = Instantiate(wallTile, transform.position, transform.rotation, wallsObject.transform);
+            newtile.GetComponent<TileScript>().setMovingTile(gameObject);
             _currentHoldTile = newtile;
         }
-        else
+        else if (_currentHoldTile)
         {
-            _currentHoldTile.GetComponent<TestTileScript>().placeMovingTile();
+            _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _currentHoldTile = null;
         }
     }
+    
+    public void BuyTntTile()
+    {
+        if (!_currentHoldTile && _canBuy)
+        {
+            var newtile = Instantiate(tntTile, transform.position, transform.rotation, wallsObject.transform);
+            newtile.GetComponent<TileScript>().setMovingTile(gameObject);
+            _currentHoldTile = newtile;
+        }
+        else if (_currentHoldTile)
+        {
+            _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
+            _currentHoldTile = null;
+        }
+    }
+
 
     public void MoveTile()
     {
@@ -106,18 +130,16 @@ public class PlayerManager : MonoBehaviour
 
         if (!_currentHoldTile)
         {
-            _initTileFlag = false;
             _currentHoldTile = _nearTile;
             _nearTile = null;
-            _currentHoldTile.GetComponent<TestTileScript>().setMovingTile(gameObject);
+            _currentHoldTile.GetComponent<TileScript>().setMovingTile(gameObject);
         }
         else
         {
-            if (!_currentHoldTile.GetComponent<TestTileScript>().CanPlace)
+            if (!_currentHoldTile.GetComponent<TileScript>().CanPlace)
                 return;
-            _currentHoldTile.GetComponent<TestTileScript>().placeMovingTile();
+            _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _currentHoldTile = null;
-            _initTileFlag = true;
         }
     }
     

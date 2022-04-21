@@ -12,7 +12,7 @@ public class TestTileScript : MonoBehaviour
     #endregion
     
     
-    #region fields
+    #region fields 
 
     private GameObject _player;
     private Tilemap _wallsTilemap;

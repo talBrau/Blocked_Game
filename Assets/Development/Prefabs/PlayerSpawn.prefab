@@ -77,7 +77,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4283469114256185448}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: InstantiateTile
+        m_MethodName: BuyWallTile
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -105,6 +105,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 33700752-6adc-4f3b-9058-4b046647b22e
     m_ActionName: Player/MoveTile[/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4283469114256185448}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: BuyTntTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 095e1109-3a6c-4706-810c-975e8b87659e
+    m_ActionName: Player/BuyTntTile[/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -122,4 +138,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cff10953b6254f49b2e327644d52d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playersSpawnManager: {fileID: 11400000, guid: 027c04fdb57fb4442a480ccf405e77f5, type: 2}
