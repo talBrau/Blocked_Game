@@ -37,9 +37,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""CreateTile"",
+                    ""name"": ""BuyWallTile"",
                     ""type"": ""Button"",
                     ""id"": ""7c12dbbb-da81-46aa-8dbc-ac4c127e093f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BuyTntTile"",
+                    ""type"": ""Button"",
+                    ""id"": ""095e1109-3a6c-4706-810c-975e8b87659e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -140,18 +149,29 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CreateTile"",
+                    ""action"": ""BuyWallTile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""ea1b500b-face-4bff-a3cc-dcf1d1749d2e"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3501cf00-8ec1-4d9d-9b64-923560e08175"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BuyTntTile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -163,7 +183,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_CreateTile = m_Player.FindAction("CreateTile", throwIfNotFound: true);
+        m_Player_BuyWallTile = m_Player.FindAction("BuyWallTile", throwIfNotFound: true);
+        m_Player_BuyTntTile = m_Player.FindAction("BuyTntTile", throwIfNotFound: true);
         m_Player_MoveTile = m_Player.FindAction("MoveTile", throwIfNotFound: true);
     }
 
@@ -225,14 +246,16 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_CreateTile;
+    private readonly InputAction m_Player_BuyWallTile;
+    private readonly InputAction m_Player_BuyTntTile;
     private readonly InputAction m_Player_MoveTile;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @CreateTile => m_Wrapper.m_Player_CreateTile;
+        public InputAction @BuyWallTile => m_Wrapper.m_Player_BuyWallTile;
+        public InputAction @BuyTntTile => m_Wrapper.m_Player_BuyTntTile;
         public InputAction @MoveTile => m_Wrapper.m_Player_MoveTile;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -246,9 +269,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @CreateTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCreateTile;
-                @CreateTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCreateTile;
-                @CreateTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCreateTile;
+                @BuyWallTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBuyWallTile;
+                @BuyWallTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBuyWallTile;
+                @BuyWallTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBuyWallTile;
+                @BuyTntTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBuyTntTile;
+                @BuyTntTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBuyTntTile;
+                @BuyTntTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBuyTntTile;
                 @MoveTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
                 @MoveTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
                 @MoveTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
@@ -259,9 +285,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @CreateTile.started += instance.OnCreateTile;
-                @CreateTile.performed += instance.OnCreateTile;
-                @CreateTile.canceled += instance.OnCreateTile;
+                @BuyWallTile.started += instance.OnBuyWallTile;
+                @BuyWallTile.performed += instance.OnBuyWallTile;
+                @BuyWallTile.canceled += instance.OnBuyWallTile;
+                @BuyTntTile.started += instance.OnBuyTntTile;
+                @BuyTntTile.performed += instance.OnBuyTntTile;
+                @BuyTntTile.canceled += instance.OnBuyTntTile;
                 @MoveTile.started += instance.OnMoveTile;
                 @MoveTile.performed += instance.OnMoveTile;
                 @MoveTile.canceled += instance.OnMoveTile;
@@ -272,7 +301,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnCreateTile(InputAction.CallbackContext context);
+        void OnBuyWallTile(InputAction.CallbackContext context);
+        void OnBuyTntTile(InputAction.CallbackContext context);
         void OnMoveTile(InputAction.CallbackContext context);
     }
 }

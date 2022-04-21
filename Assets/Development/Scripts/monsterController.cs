@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 
 public class monsterController : MonoBehaviour
@@ -33,7 +35,12 @@ public class monsterController : MonoBehaviour
     void Start()
     {
         _monsterManager = FindObjectOfType<MonsterManager>();
-        InvokeRepeating(nameof(LookForTarget), 0f, 3f);
+        int targetPlayerOrBase = Random.Range(0, 2);
+        if (targetPlayerOrBase == 0)
+            InvokeRepeating(nameof(LookForTarget), 0f, 3f);
+        else
+            _target = _monsterManager.baseObject.transform;
+        print(targetPlayerOrBase);
     }
 
     void Update()
@@ -76,6 +83,12 @@ public class monsterController : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (obj.CompareTag("Base"))
+        {
+            // Todo 
+        }
+
     }
 
     #endregion

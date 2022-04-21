@@ -8,6 +8,7 @@ TagManager:
   - Runner
   - Wall
   - Monster
+  - Base
   layers:
   - Default
   - TransparentFX
