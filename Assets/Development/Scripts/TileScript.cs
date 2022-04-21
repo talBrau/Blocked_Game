@@ -3,13 +3,23 @@ using UnityEngine.Tilemaps;
 
 public class TileScript : MonoBehaviour
 {
-    #region fields
+    #region Inspector
+
+    [Range(0, 1)]
+    [SerializeField] private float onMoveTransparency = 0.5f;
+
+    #endregion
+    
+    
+    #region fields 
 
     private GameObject _player;
     private Tilemap _wallsTilemap;
     private Tilemap _groundTilemap;
     private PlayerManager _playerScript;
     private bool _moving;
+    private bool _canPlace;
+    public bool CanPlace => _canPlace;
 
     #endregion
 
@@ -21,7 +31,7 @@ public class TileScript : MonoBehaviour
         _wallsTilemap = _playerScript.WallTileMap;
         _groundTilemap = _playerScript.GroundTileMap;
         GetComponent<EdgeCollider2D>().isTrigger = true;
-        GetComponent<SpriteRenderer>().color = Color.gray;
+        GetComponent<SpriteRenderer>().color = new Color(1,1,1, onMoveTransparency);
     }
 
     public void placeMovingTile()
@@ -29,7 +39,24 @@ public class TileScript : MonoBehaviour
         _moving = false;
         
         GetComponent<EdgeCollider2D>().isTrigger = false;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        print(_wallsTilemap.CellToWorld(_wallsTilemap.WorldToCell(transform.position)));
+        print(_wallsTilemap.HasTile(_wallsTilemap.WorldToCell(transform.position)));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print(other.gameObject.name);
+        print(other.gameObject.tag);
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wall") && _moving && !_canPlace)
+        {
+            _canPlace = true;
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, onMoveTransparency);
+        }
     }
 
     private void Update()
@@ -40,17 +67,27 @@ public class TileScript : MonoBehaviour
         var playerDir = _playerScript.Direction;
         if (playerDir == Vector3.zero)
             playerDir = _playerScript.LastDir;
-        Vector3 check = playerDir;
-        var temp = _player.transform.position + playerDir + check * 0.7f;
+        // Vector3 check = playerDir;
+        var temp = _player.transform.position + playerDir;
         Vector3Int gridPos = _groundTilemap.WorldToCell(temp);
         var tilePos = _groundTilemap.CellToWorld(gridPos);
         transform.position = tilePos;
 
         /// TODO : FIX!!!
-        if (_wallsTilemap.HasTile(_groundTilemap.WorldToCell(transform.position)))
+        if (_wallsTilemap.HasTile(_wallsTilemap.WorldToCell(transform.position))
+            || !_groundTilemap.HasTile(_groundTilemap.WorldToCell(transform.position - Vector3.up)))
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
-            print("yup");
+            _canPlace = false;
+            GetComponent<SpriteRenderer>().color = new Color(1,0,0,onMoveTransparency);
         }
+        else
+        {
+            if (!_canPlace)
+            {
+                _canPlace = true;
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, onMoveTransparency);
+            }
+        }
+
     }
 }
