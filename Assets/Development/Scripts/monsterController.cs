@@ -18,7 +18,7 @@ public class monsterController : MonoBehaviour
 
     #region Fields
 
-    private MonsterManager _monsterManager;
+    public MonsterManager monsterManager;
     private bool _isTouchingWall = false;
     private float _timeOnWall = 0;
     private GameObject _curTile = null;
@@ -34,12 +34,12 @@ public class monsterController : MonoBehaviour
 
     void Start()
     {
-        _monsterManager = FindObjectOfType<MonsterManager>();
+        monsterManager = FindObjectOfType<MonsterManager>();
         int targetPlayerOrBase = Random.Range(0, 2);
         if (targetPlayerOrBase == 0)
             InvokeRepeating(nameof(LookForTarget), 0f, 3f);
         else
-            _target = _monsterManager.baseObject.transform;
+            _target = monsterManager.baseObject.transform;
         print(targetPlayerOrBase);
     }
 
@@ -72,21 +72,14 @@ public class monsterController : MonoBehaviour
             _curTile = obj;
         }
 
-        if (obj.CompareTag("Runner"))
+        if (obj.CompareTag("Player"))
         {
-            _monsterManager.RemovePlayer(obj.transform);
-            Destroy(obj);
-            if (_monsterManager.GetPlayersCount == 0) //endgame
+            obj.GetComponent<PlayerManager>().playerDead();
+            if (monsterManager.GetPlayersCount == 0) //endgame
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-
             Destroy(gameObject);
-        }
-
-        if (obj.CompareTag("Base"))
-        {
-            // Todo 
         }
 
     }
@@ -125,7 +118,7 @@ public class monsterController : MonoBehaviour
 
     private void LookForTarget()
     {
-        int playerCount = _monsterManager.GetPlayersCount;
+        int playerCount = monsterManager.GetPlayersCount;
         if (playerCount == 0)
         {
             return; // TODO: INVOKE ENDGAME WHEN MERGED
@@ -134,11 +127,11 @@ public class monsterController : MonoBehaviour
         float[] distances = new float[playerCount];
         for (int i = 0; i < playerCount; i++)
         {
-            distances[i] = Vector3.Distance(_monsterManager.GetPlayerI(i).position, transform.position);
+            distances[i] = Vector3.Distance(monsterManager.GetPlayerI(i).position, transform.position);
         }
 
         int minInd = Array.IndexOf(distances, distances.Min());
-        _target = _monsterManager.GetPlayerI(minInd);
+        _target = monsterManager.GetPlayerI(minInd);
     }
 
     #endregion

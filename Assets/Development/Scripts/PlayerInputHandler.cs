@@ -59,6 +59,13 @@ public class PlayerInputHandler : MonoBehaviour
         _PlayerManager.MoveTile();
     }
 
+    public void ReviveFriend(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        _PlayerManager.ReviveFriend();
+    }
+    
     public void DetonateTnt(InputAction.CallbackContext context)
     {
         if (!context.performed)

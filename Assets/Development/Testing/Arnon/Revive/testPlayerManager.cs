@@ -1,14 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerManager : MonoBehaviour
+public class testPlayerManager : MonoBehaviour
 {
     #region Inspector
 
     [SerializeField] private float moveSpeed = 4;
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
+
 
     #endregion
 
@@ -29,30 +29,17 @@ public class PlayerManager : MonoBehaviour
     private GameObject groundObject;
     private GameObject sceneManager;
 
-
     private Tilemap groundTileMap;
     public Tilemap GroundTileMap => groundTileMap;
     private Tilemap wallTileMap;
     public Tilemap WallTileMap => wallTileMap;
-
+    
     private GameObject _nearTile;
-
+    private GameObject _nearFriend;
     private GameObject _currentHoldTile;
-
     //Detonate tile
     public bool isHoldingDetonateTrigger = false;
 
-    //endGame
-    private bool isStandingOnButton = false;
-    [SerializeField] private PlayersDetonate _playersDetonate;
-
-    public bool IsStandingOnButton
-    {
-        get => isStandingOnButton;
-        set => isStandingOnButton = value;
-    }
-
-    private GameObject _nearFriend;
     private bool isAlive = true;
 
     public bool IsAlive
@@ -61,7 +48,6 @@ public class PlayerManager : MonoBehaviour
         set => isAlive = value;
     }
 
-    private MonsterManager _monsterManager;
     #endregion
 
     #region MonoBehaviour
@@ -74,7 +60,6 @@ public class PlayerManager : MonoBehaviour
         groundObject = GameObject.Find("Ground");
         groundTileMap = groundObject.GetComponent<Tilemap>();
         _rb = GetComponent<Rigidbody2D>();
-        _monsterManager = GameObject.Find("Monster Manager").GetComponent<MonsterManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -82,7 +67,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Base"))
             _canBuy = true;
     }
-
+    
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall") && !_currentHoldTile && !_nearTile)
@@ -90,8 +75,13 @@ public class PlayerManager : MonoBehaviour
             other.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             _nearTile = other.gameObject;
         }
-    }
 
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _nearFriend = other.gameObject;
+        }
+    }
+    
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall") && _nearTile)
@@ -102,22 +92,9 @@ public class PlayerManager : MonoBehaviour
 
         if (other.gameObject.CompareTag("Base"))
             _canBuy = false;
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player") && isAlive)
+        
+        if (other.gameObject.CompareTag("Player"))
         {
-            _nearFriend = other.gameObject;
-            _nearFriend.GetComponent<SpriteRenderer>().color = Color.green;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player") && isAlive)
-        {
-            _nearFriend.GetComponent<SpriteRenderer>().color = Color.gray;
             _nearFriend = null;
         }
     }
@@ -133,17 +110,11 @@ public class PlayerManager : MonoBehaviour
 
     public void Move(Vector2 input)
     {
-        if (!isAlive)
-        {
-            _direction = Vector3.zero;
-            return;
-        }
-        
         _direction = input;
         if (_direction != _lastDir && _direction != Vector3.zero)
             _lastDir = _direction;
     }
-
+    
     public void BuyWallTile()
     {
         if (!_currentHoldTile && _canBuy)
@@ -165,7 +136,7 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = null;
         }
     }
-
+    
     public void BuyTntTile()
     {
         if (!_currentHoldTile && _canBuy)
@@ -214,47 +185,28 @@ public class PlayerManager : MonoBehaviour
     {
         sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
-
+    
     public void DetonateTnt()
     {
-        if (isStandingOnButton)
-        {
-            _playersDetonate.IncreaseReadyDetonate();
-        }
-    }
-
-    public void SetReadyEndGame()
-    {
-        if (isStandingOnButton)
-        {
-            _playersDetonate.IncreaseReadyEnd();
-        }
+        isHoldingDetonateTrigger = true;
     }
 
     public void ReviveFriend()
     {
-        if (_nearFriend && !(_nearFriend.GetComponent<PlayerManager>().isAlive))
+        if (_nearFriend)
         {
-            _monsterManager.AddPlayer(_nearFriend.transform);
-            var friendScript = _nearFriend.gameObject.GetComponent<PlayerManager>();
+            var friendScript = _nearFriend.gameObject.GetComponent<testPlayerManager>();
             friendScript.IsAlive = true;
-            friendScript.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            friendScript.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
             friendScript.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
     
     public void playerDead()
     {
-        _monsterManager.RemovePlayer(transform);
         isAlive = false;
-        GetComponent<CapsuleCollider2D>().isTrigger = true;
+        GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = Color.gray;
-        if (_currentHoldTile)
-        {
-            Destroy(_currentHoldTile);
-            _currentHoldTile = null;
-        }
     }
-    
     #endregion
 }

@@ -89,6 +89,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReviveFriend"",
+                    ""type"": ""Button"",
+                    ""id"": ""62df0aa0-1fb4-46db-81f7-6f6747462c69"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -226,12 +235,34 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""993328a4-2294-4f20-9d8c-20becfb8f24f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SetReady"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e241c0a3-e48c-40ea-81ca-761895a86fb2"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SetReadyEndGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3ca980b-d777-4c63-9c51-b534a014e48f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Hold(duration=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReviveFriend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -249,6 +280,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_DetonateTntTile = m_Player.FindAction("DetonateTntTile", throwIfNotFound: true);
         m_Player_SetReady = m_Player.FindAction("SetReady", throwIfNotFound: true);
         m_Player_SetReadyEndGame = m_Player.FindAction("SetReadyEndGame", throwIfNotFound: true);
+        m_Player_ReviveFriend = m_Player.FindAction("ReviveFriend", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -315,6 +347,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_DetonateTntTile;
     private readonly InputAction m_Player_SetReady;
     private readonly InputAction m_Player_SetReadyEndGame;
+    private readonly InputAction m_Player_ReviveFriend;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -326,6 +359,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @DetonateTntTile => m_Wrapper.m_Player_DetonateTntTile;
         public InputAction @SetReady => m_Wrapper.m_Player_SetReady;
         public InputAction @SetReadyEndGame => m_Wrapper.m_Player_SetReadyEndGame;
+        public InputAction @ReviveFriend => m_Wrapper.m_Player_ReviveFriend;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -356,6 +390,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SetReadyEndGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReadyEndGame;
                 @SetReadyEndGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReadyEndGame;
                 @SetReadyEndGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReadyEndGame;
+                @ReviveFriend.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReviveFriend;
+                @ReviveFriend.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReviveFriend;
+                @ReviveFriend.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReviveFriend;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -381,6 +418,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SetReadyEndGame.started += instance.OnSetReadyEndGame;
                 @SetReadyEndGame.performed += instance.OnSetReadyEndGame;
                 @SetReadyEndGame.canceled += instance.OnSetReadyEndGame;
+                @ReviveFriend.started += instance.OnReviveFriend;
+                @ReviveFriend.performed += instance.OnReviveFriend;
+                @ReviveFriend.canceled += instance.OnReviveFriend;
             }
         }
     }
@@ -394,5 +434,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnDetonateTntTile(InputAction.CallbackContext context);
         void OnSetReady(InputAction.CallbackContext context);
         void OnSetReadyEndGame(InputAction.CallbackContext context);
+        void OnReviveFriend(InputAction.CallbackContext context);
     }
 }

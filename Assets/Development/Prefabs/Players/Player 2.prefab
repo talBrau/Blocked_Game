@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1995388432893814499}
   m_Layer: 0
   m_Name: Player 2
-  m_TagString: Runner
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,3 +137,4 @@ MonoBehaviour:
   moveSpeed: 4
   wallTile: {fileID: 5150466889257248711, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   tntTile: {fileID: 7932724438151317373, guid: 037f70959ac8cc942900fb8c85a1f793, type: 3}
+  isHoldingDetonateTrigger: 0

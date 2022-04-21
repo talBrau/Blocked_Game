@@ -79,6 +79,8 @@ public class MonsterManager : MonoBehaviour
 
     public void RemovePlayer(Transform player) => players.Remove(player);
 
+    public void AddPlayer(Transform player) => players.Add(player);
+
     public void stopOnBoarding()
     {
         _onBoarding = false;

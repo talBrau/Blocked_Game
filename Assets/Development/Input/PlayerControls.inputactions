@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ReviveFriend",
+                    "type": "Button",
+                    "id": "62df0aa0-1fb4-46db-81f7-6f6747462c69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -204,12 +213,34 @@
                 },
                 {
                     "name": "",
+                    "id": "993328a4-2294-4f20-9d8c-20becfb8f24f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetReady",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e241c0a3-e48c-40ea-81ca-761895a86fb2",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SetReadyEndGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3ca980b-d777-4c63-9c51-b534a014e48f",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReviveFriend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
