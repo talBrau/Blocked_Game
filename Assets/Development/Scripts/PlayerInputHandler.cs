@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
         PlayersSpawnManager _playersSpawnManager = _playersManager.GetComponent<PlayersSpawnManager>();
         gameObject.name = "Player " + (5 - _playersSpawnManager.playersPrefabs.Count);
         transform.parent = _playersManager.transform;
+        _playersSpawnManager.playersSpawned += 1;
         
         var ind = Random.Range(0, _playersSpawnManager.playersPrefabs.Count);
         player = Instantiate(_playersSpawnManager.playersPrefabs[ind],
@@ -28,8 +29,8 @@ public class PlayerInputHandler : MonoBehaviour
         _playersSpawnManager.playersPrefabs.Remove(_playersSpawnManager.playersPrefabs[ind]);
         _playersSpawnManager.playerInitialPositions.Remove(_playersSpawnManager.playerInitialPositions[ind]);
         
-        var monsterManager = GameObject.Find("Monster Manager");
-        monsterManager.GetComponent<MonsterManager>().players.Add(transform);
+        // var monsterManager = GameObject.Find("Monster Manager");
+        // monsterManager.GetComponent<MonsterManager>().players.Add(transform);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -56,5 +57,13 @@ public class PlayerInputHandler : MonoBehaviour
         if (!context.performed)
             return;
         _PlayerManager.MoveTile();
+    }
+
+    public void SetReady(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        print("pinuk");
+        _PlayerManager.SetReady();
     }
 }

@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SetReady",
+                    "type": "Button",
+                    "id": "0152b6d5-6395-4a5c-b7da-3931f96712da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -150,6 +159,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "BuyTntTile",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b3126ff-f222-4a1e-9c73-5e7cf2ae779f",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Hold(duration=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SetReady",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

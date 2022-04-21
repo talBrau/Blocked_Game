@@ -420,6 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124433613}
+  - component: {fileID: 124433612}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -427,6 +428,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &124433612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124433611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5873e2d2e16fe4cf48b2f1f7bd6322b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterManager: {fileID: 971635523}
+  playersSpawnManager: {fileID: 537211665}
 --- !u!4 &124433613
 Transform:
   m_ObjectHideFlags: 0
@@ -14093,6 +14108,7 @@ MonoBehaviour:
   - {x: 10, y: 4, z: 0}
   - {x: 0, y: 10, z: 0}
   - {x: 0, y: -4, z: 0}
+  playersSpawned: 0
 --- !u!1001 &549330482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15546,6 +15562,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5150466889257248707, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   m_PrefabInstance: {fileID: 906486950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &971635523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8851802570420706186, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
+  m_PrefabInstance: {fileID: 9263451}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &978225175
 PrefabInstance:
