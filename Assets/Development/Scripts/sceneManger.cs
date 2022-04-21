@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class sceneManger : MonoBehaviour
@@ -16,16 +13,13 @@ public class sceneManger : MonoBehaviour
         if (_readyCounter == playersSpawnManager.playersSpawned)
         {
             onBoarding = false;
-            monsterManager.SetActive(true);
+            monsterManager.GetComponent<MonsterManager>().stopOnBoarding();
         }
-
     }
     
     private void Awake()
     {
         onBoarding = true;
-        monsterManager.SetActive(false);
-        
     }
     
 }
