@@ -57,4 +57,10 @@ public class PlayerInputHandler : MonoBehaviour
             return;
         _PlayerManager.MoveTile();
     }
+    public void DetonateTnt(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        _PlayerManager.DetonateTnt();
+    }
 }

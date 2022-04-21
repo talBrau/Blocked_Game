@@ -35,6 +35,9 @@ public class PlayerManager : MonoBehaviour
     
     private GameObject _nearTile;
     private GameObject _currentHoldTile;
+    //Detonate tile
+    public bool isHoldingDetonateTrigger = false;
+    
     #endregion
 
     #region MonoBehaviour
@@ -141,7 +144,10 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = null;
         }
     }
-    
 
+    public void DetonateTnt()
+    {
+        isHoldingDetonateTrigger = true;
+    }
     #endregion
 }

@@ -21,7 +21,7 @@ public class explode : MonoBehaviour
         }
     }
 
-    private void explodeTile()
+    public void explodeTile()
     {
         Instantiate(explosionEffect,transform.position,transform.rotation);
         Collider2D[] surrounding = Physics2D.OverlapCircleAll(transform.position, radius);
