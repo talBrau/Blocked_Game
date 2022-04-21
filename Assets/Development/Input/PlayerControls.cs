@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SetReady"",
+                    ""type"": ""Button"",
+                    ""id"": ""0152b6d5-6395-4a5c-b7da-3931f96712da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""BuyTntTile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b3126ff-f222-4a1e-9c73-5e7cf2ae779f"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": ""Hold(duration=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SetReady"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +206,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_BuyWallTile = m_Player.FindAction("BuyWallTile", throwIfNotFound: true);
         m_Player_BuyTntTile = m_Player.FindAction("BuyTntTile", throwIfNotFound: true);
         m_Player_MoveTile = m_Player.FindAction("MoveTile", throwIfNotFound: true);
+        m_Player_SetReady = m_Player.FindAction("SetReady", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +270,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_BuyWallTile;
     private readonly InputAction m_Player_BuyTntTile;
     private readonly InputAction m_Player_MoveTile;
+    private readonly InputAction m_Player_SetReady;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -257,6 +279,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @BuyWallTile => m_Wrapper.m_Player_BuyWallTile;
         public InputAction @BuyTntTile => m_Wrapper.m_Player_BuyTntTile;
         public InputAction @MoveTile => m_Wrapper.m_Player_MoveTile;
+        public InputAction @SetReady => m_Wrapper.m_Player_SetReady;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -278,6 +301,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @MoveTile.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
                 @MoveTile.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
                 @MoveTile.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveTile;
+                @SetReady.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
+                @SetReady.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
+                @SetReady.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSetReady;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -294,6 +320,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @MoveTile.started += instance.OnMoveTile;
                 @MoveTile.performed += instance.OnMoveTile;
                 @MoveTile.canceled += instance.OnMoveTile;
+                @SetReady.started += instance.OnSetReady;
+                @SetReady.performed += instance.OnSetReady;
+                @SetReady.canceled += instance.OnSetReady;
             }
         }
     }
@@ -304,5 +333,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnBuyWallTile(InputAction.CallbackContext context);
         void OnBuyTntTile(InputAction.CallbackContext context);
         void OnMoveTile(InputAction.CallbackContext context);
+        void OnSetReady(InputAction.CallbackContext context);
     }
 }

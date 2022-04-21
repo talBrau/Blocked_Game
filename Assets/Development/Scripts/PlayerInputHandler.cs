@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
         PlayersSpawnManager _playersSpawnManager = _playersManager.GetComponent<PlayersSpawnManager>();
         gameObject.name = "Player " + (5 - _playersSpawnManager.playersPrefabs.Count);
         transform.parent = _playersManager.transform;
+        _playersSpawnManager.playersSpawned += 1;
         
         var ind = Random.Range(0, _playersSpawnManager.playersPrefabs.Count);
         player = Instantiate(_playersSpawnManager.playersPrefabs[ind],
@@ -57,10 +58,19 @@ public class PlayerInputHandler : MonoBehaviour
             return;
         _PlayerManager.MoveTile();
     }
+
     public void DetonateTnt(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
         _PlayerManager.DetonateTnt();
+    }
+
+    public void SetReady(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        print("pinuk");
+        _PlayerManager.SetReady();
     }
 }

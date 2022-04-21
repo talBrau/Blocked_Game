@@ -12,7 +12,7 @@ public class monsterController : MonoBehaviour
 
     [SerializeField] private float maxTimeOnWall = 10;
     [SerializeField] private float monsterSpeed;
-    [SerializeField] private float timeUntillDead = 10;
+    [SerializeField] private float timeUntilDead = 10;
 
     #endregion
 
@@ -109,7 +109,7 @@ public class monsterController : MonoBehaviour
 
     private void UpdateLifeTime()
     {
-        if (_timeAlive > timeUntillDead)
+        if (_timeAlive > timeUntilDead)
         {
             if (_curTile != null)
             {

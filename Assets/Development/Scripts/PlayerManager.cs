@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
 
+
     #endregion
 
     #region fields
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     private bool _canBuy;
     private GameObject wallsObject;
     private GameObject groundObject;
+    private GameObject sceneManager;
 
     private Tilemap groundTileMap;
     public Tilemap GroundTileMap => groundTileMap;
@@ -44,6 +46,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        sceneManager = GameObject.Find("Scene Manager");
         wallsObject = GameObject.Find("Walls");
         wallTileMap = wallsObject.GetComponent<Tilemap>();
         groundObject = GameObject.Find("Ground");
@@ -145,6 +148,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void SetReady()
+    {
+        sceneManager.GetComponent<sceneManger>().increaseReadyCounter();
+    }
+    
     public void DetonateTnt()
     {
         isHoldingDetonateTrigger = true;

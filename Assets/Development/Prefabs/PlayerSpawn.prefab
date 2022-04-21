@@ -121,6 +121,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 095e1109-3a6c-4706-810c-975e8b87659e
     m_ActionName: Player/BuyTntTile[/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4283469114256185448}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: SetReady
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0152b6d5-6395-4a5c-b7da-3931f96712da
+    m_ActionName: Player/SetReady[/XInputControllerWindows/start,/XInputControllerWindows1/start,/XInputControllerWindows2/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
