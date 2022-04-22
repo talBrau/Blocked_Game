@@ -35,8 +35,6 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (!context.performed)
-            return;
         _PlayerManager.Move(context.ReadValue<Vector2>());
     }
 
@@ -72,7 +70,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.performed)
             _PlayerManager.DetonateTnt(true);
-        if (context.canceled)
+        else if (context.canceled)
             _PlayerManager.DetonateTnt(false);
     }
 

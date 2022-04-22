@@ -10,6 +10,7 @@ TagManager:
   - Monster
   - Base
   - Exploding Tile
+  - Button
   layers:
   - Default
   - TransparentFX

@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private MonsterManager _monsterManager;
-    private PlayersDetonate _playersDetonate;
+    private PlayersButtons _playersButtons;
     private bool _buttonPressed;
 
     #endregion
@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        _playersDetonate = GameObject.Find("Players Manager").GetComponent<PlayersDetonate>();
+        _playersButtons = GameObject.Find("Players Manager").GetComponent<PlayersButtons>();
         sceneManager = GameObject.Find("GameManager");
         wallsObject = GameObject.Find("Walls");
         wallTileMap = wallsObject.GetComponent<Tilemap>();
@@ -122,6 +122,9 @@ public class PlayerManager : MonoBehaviour
             _nearFriend.GetComponent<SpriteRenderer>().color = Color.gray;
             _nearFriend = null;
         }
+        
+        if (other.gameObject.CompareTag("Button") && _playersButtons.playerInReadyEnd(gameObject))
+            _playersButtons.DecreaseReadyEnd(gameObject);
     }
 
     private void FixedUpdate()
@@ -166,7 +169,7 @@ public class PlayerManager : MonoBehaviour
             if (_currentHoldTile.gameObject.CompareTag("Exploding Tile") && _boughtTNT)
             {
                 _boughtTNT = false;
-                _playersDetonate.addToList(_currentHoldTile);
+                _playersButtons.addToList(_currentHoldTile);
             }
 
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
@@ -197,7 +200,7 @@ public class PlayerManager : MonoBehaviour
             if (_currentHoldTile.gameObject.CompareTag("Exploding Tile") && _boughtTNT)
             {
                 _boughtTNT = false;
-                _playersDetonate.addToList(_currentHoldTile);
+                _playersButtons.addToList(_currentHoldTile);
             }
 
             _currentHoldTile = null;
@@ -223,7 +226,7 @@ public class PlayerManager : MonoBehaviour
             if (_currentHoldTile.gameObject.CompareTag("Exploding Tile") && _boughtTNT)
             {
                 _boughtTNT = false;
-                _playersDetonate.addToList(_currentHoldTile);
+                _playersButtons.addToList(_currentHoldTile);
             }
 
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
@@ -242,25 +245,24 @@ public class PlayerManager : MonoBehaviour
         {
             if (startPress)
             {
-                _playersDetonate.IncreaseReadyDetonate();
+                _playersButtons.IncreaseReadyDetonate();
                 _buttonPressed = true;
                 return;
             }
         }
-
         if (_buttonPressed)
         {
-            _playersDetonate.DecreaseReadyDetonate();
+            _playersButtons.DecreaseReadyDetonate();
             _buttonPressed = false;
         }
-            
     }
 
     public void SetReadyEndGame()
     {
         if (isStandingOnButton)
         {
-            _playersDetonate.IncreaseReadyEnd();
+            _playersButtons.IncreaseReadyEnd(gameObject);
+            _buttonPressed = true;
         }
     }
 
