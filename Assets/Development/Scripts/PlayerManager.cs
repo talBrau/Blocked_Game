@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
     [SerializeField] private IsometricCharecterRenderer _isoRenderer;
-    
+
     #endregion
 
     #region fields
@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour
         _monsterManager = GameObject.Find("Monster Manager").GetComponent<MonsterManager>();
         _isoRenderer = GetComponentInChildren<IsometricCharecterRenderer>();
         _toturial = GetComponent<Toturial>();
-        _toturial.ShowKey(Toturial.Keys.StartKey);
+        _toturial.ShowKey(Toturial.Keys.MoveKey);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -101,8 +101,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Base"))
         {
             _canBuy = true;
-            _toturial.ShowKey(Toturial.Keys.LbKey);
-            _toturial.ShowKey(Toturial.Keys.RbKey);
+            _toturial.ShowKey(Toturial.Keys.LbRbKey);
         }
     }
 
@@ -124,22 +123,24 @@ public class PlayerManager : MonoBehaviour
             _nearTile.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             _nearTile = null;
             _toturial.HideKey(Toturial.Keys.LeftKey);
-
         }
 
         if (other.gameObject.CompareTag("Base"))
         {
             _canBuy = false;
-            _toturial.HideKey(Toturial.Keys.LbKey);
-            _toturial.HideKey(Toturial.Keys.RbKey);
+            _toturial.HideKey(Toturial.Keys.LbRbKey);
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Button"))
+        {
+            _toturial.ShowKey(Toturial.Keys.UpKey);
+        }
+
+        //can revive player
+        if (col.gameObject.CompareTag("Player") && isAlive)
         {
             _toturial.ShowKey(Toturial.Keys.RightKey);
         }
@@ -152,7 +153,6 @@ public class PlayerManager : MonoBehaviour
             _nearFriend = other.gameObject;
             _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -161,14 +161,17 @@ public class PlayerManager : MonoBehaviour
         {
             _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
             _nearFriend = null;
+            _toturial.HideKey(Toturial.Keys.RightKey);
         }
 
-        if (other.gameObject.CompareTag("Button") && _playersButtons.playerInReadyEnd(gameObject))
+        if (other.gameObject.CompareTag("Button"))
         {
-            _toturial.ShowKey(Toturial.Keys.RightKey);
-            _playersButtons.DecreaseReadyEnd(gameObject);
+            _toturial.HideKey(Toturial.Keys.UpKey);
+            if (_playersButtons.playerInReadyEnd(gameObject))
+            {
+                _playersButtons.DecreaseReadyEnd(gameObject);
+            }
         }
-
     }
 
     private void FixedUpdate()
@@ -184,6 +187,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Move(Vector2 input)
     {
+        _toturial.HideKey(Toturial.Keys.MoveKey);
         if (!isAlive)
         {
             _direction = Vector3.zero;
@@ -262,6 +266,7 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = _nearTile;
             _nearTile = null;
             _currentHoldTile.GetComponent<TileScript>().setMovingTile(gameObject);
+            _toturial.ShowKey(Toturial.Keys.LeftKey);
         }
         else
         {
@@ -273,6 +278,7 @@ public class PlayerManager : MonoBehaviour
                 _playersButtons.addToList(_currentHoldTile);
             }
 
+            _toturial.HideKey(Toturial.Keys.LeftKey);
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _currentHoldTile = null;
         }
@@ -280,7 +286,6 @@ public class PlayerManager : MonoBehaviour
 
     public void SetReady()
     {
-        _toturial.HideKey(Toturial.Keys.StartKey);
         sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
 
@@ -295,6 +300,7 @@ public class PlayerManager : MonoBehaviour
                 return;
             }
         }
+
         if (_buttonPressed)
         {
             _playersButtons.DecreaseReadyDetonate();

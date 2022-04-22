@@ -876,6 +876,8 @@ MonoBehaviour:
   playersSpawnManager: {fileID: 537211665}
   gameOverUI: {fileID: 0}
   gameWonUI: {fileID: 0}
+  gameWonScore: {fileID: 0}
+  newHighScore: {fileID: 0}
 --- !u!4 &124433613
 Transform:
   m_ObjectHideFlags: 0
@@ -32154,7 +32156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1254089263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32188,6 +32190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1406672506}
+  Highscore: {fileID: 0}
 --- !u!114 &1254089265
 MonoBehaviour:
   m_ObjectHideFlags: 0
