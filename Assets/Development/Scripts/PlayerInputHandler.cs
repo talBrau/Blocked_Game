@@ -70,9 +70,10 @@ public class PlayerInputHandler : MonoBehaviour
     
     public void DetonateTnt(InputAction.CallbackContext context)
     {
-        if (!context.performed)
-            return;
-        _PlayerManager.DetonateTnt();
+        if (context.performed)
+            _PlayerManager.DetonateTnt(true);
+        if (context.canceled)
+            _PlayerManager.DetonateTnt(false);
     }
 
     public void SetReady(InputAction.CallbackContext context)

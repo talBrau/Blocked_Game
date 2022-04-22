@@ -1,25 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class explode : MonoBehaviour
 {
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float radius;
-    [SerializeField] private float explosionForce = 0;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.A)) //TODO: input system all players press key
-        {
-            explodeTile();
-        }
-    }
+    [SerializeField] private float explosionForce;
 
     public void explodeTile()
     {

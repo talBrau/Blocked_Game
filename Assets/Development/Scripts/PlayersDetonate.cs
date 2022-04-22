@@ -1,16 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayersDetonate : MonoBehaviour
 {
     private PlayersSpawnManager _spawnManager;
-    private bool readyToExplode = false;
-    private bool readyEndGame = false;
-    private int readyCountDetonate = 0;
-    private int readyCountEnd = 0;
+    private bool readyToExplode;
+    private bool readyEndGame;
+    private int readyCountDetonate;
+    private int readyCountEnd;
     
-    [SerializeField] private List<GameObject> explodingTile;
+    [SerializeField] private List<GameObject> explodingTiles;
     void Start()
     {
         _spawnManager = GetComponent<PlayersSpawnManager>();
@@ -19,16 +18,23 @@ public class PlayersDetonate : MonoBehaviour
     public void IncreaseReadyDetonate()
     {
         readyCountDetonate++;
+        print(readyCountDetonate);
         if (readyCountDetonate == _spawnManager.playersSpawned)
         {
-            foreach (var tile in explodingTile)
+            foreach (var tile in explodingTiles)
             {
                 tile.GetComponent<explode>().explodeTile();
             }
+            explodingTiles = new List<GameObject>();
         }
-
-        readyCountDetonate = 0;
     }
+
+    public void DecreaseReadyDetonate()
+    {
+        readyCountDetonate--;
+        print(readyCountDetonate);
+    }
+    
     public void IncreaseReadyEnd()
     {
         readyCountEnd++;
@@ -37,5 +43,10 @@ public class PlayersDetonate : MonoBehaviour
            print("END GAME");
         }
         readyCountEnd = 0;
+    }
+
+    public void addToList(GameObject explodingTile)
+    {
+        explodingTiles.Add(explodingTile);
     }
 }
