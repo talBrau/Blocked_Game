@@ -64,7 +64,6 @@ public class PlayerManager : MonoBehaviour
     private MonsterManager _monsterManager;
     private PlayersButtons _playersButtons;
     private bool _buttonPressed;
-    private PlayerAudioManager _playerAudioManager;
 
     #endregion
 
@@ -93,13 +92,8 @@ public class PlayerManager : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _monsterManager = GameObject.Find("Monster Manager").GetComponent<MonsterManager>();
         _isoRenderer = GetComponentInChildren<IsometricCharecterRenderer>();
-<<<<<<< Updated upstream
         _toturial = GetComponent<Toturial>();
         _toturial.ShowKey(Toturial.Keys.MoveKey);
-=======
-        _playerAudioManager = GetComponent<PlayerAudioManager>();
-
->>>>>>> Stashed changes
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -217,7 +211,6 @@ public class PlayerManager : MonoBehaviour
             GameManager.Score -= GameManager.WallTilePrice;
             var newtile = Instantiate(wallTile, transform.position, transform.rotation, wallsObject.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
-            _playerAudioManager.playBuyTile();
             _currentHoldTile = newtile;
         }
         else if (_currentHoldTile)
@@ -229,7 +222,6 @@ public class PlayerManager : MonoBehaviour
             }
 
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
-            _playerAudioManager.playMoveTile();
             _currentHoldTile = null;
         }
     }
@@ -247,7 +239,6 @@ public class PlayerManager : MonoBehaviour
             GameManager.Score -= GameManager.ExplodingTilePrice;
             var newtile = Instantiate(tntTile, transform.position, transform.rotation, wallsObject.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
-            _playerAudioManager.playBuyTile();
             _currentHoldTile = newtile;
             _boughtTNT = true;
         }
@@ -259,7 +250,7 @@ public class PlayerManager : MonoBehaviour
                 _boughtTNT = false;
                 _playersButtons.addToList(_currentHoldTile);
             }
-            _playerAudioManager.playMoveTile();
+
             _currentHoldTile = null;
         }
     }
@@ -275,11 +266,7 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = _nearTile;
             _nearTile = null;
             _currentHoldTile.GetComponent<TileScript>().setMovingTile(gameObject);
-<<<<<<< Updated upstream
             _toturial.ShowKey(Toturial.Keys.LeftKey);
-=======
-            _playerAudioManager.playMoveTile();
->>>>>>> Stashed changes
         }
         else
         {
@@ -293,7 +280,6 @@ public class PlayerManager : MonoBehaviour
 
             _toturial.HideKey(Toturial.Keys.LeftKey);
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
-            _playerAudioManager.playMoveTile();
             _currentHoldTile = null;
         }
     }
@@ -340,7 +326,6 @@ public class PlayerManager : MonoBehaviour
             friendScript.IsAlive = true;
             friendScript.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
             friendScript.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-            _playerAudioManager.playReviveFriend();
         }
     }
 
