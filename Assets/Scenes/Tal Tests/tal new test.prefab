@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5328479089887147519
+--- !u!1 &1443471109930704034
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7270123407197776945}
-  - component: {fileID: 762700252499531126}
-  - component: {fileID: 8441179662815597983}
+  - component: {fileID: 7326482936941422906}
+  - component: {fileID: 4066173662498760836}
+  - component: {fileID: 1066372112012798035}
   m_Layer: 0
   m_Name: Layer1
   m_TagString: Untagged
@@ -18,84 +18,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7270123407197776945
+--- !u!4 &7326482936941422906
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5328479089887147519}
+  m_GameObject: {fileID: 1443471109930704034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2208300256521384185}
+  m_Father: {fileID: 6706098969804547316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1839735485 &762700252499531126
+--- !u!1839735485 &4066173662498760836
 Tilemap:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5328479089887147519}
+  m_GameObject: {fileID: 1443471109930704034}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -2, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -1, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -3, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -1, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -1, y: -1, z: 0}
+  - first: {x: -6, y: -2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -104,32 +54,12 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 1c5f9d59665da0b4cb9c415a6b1f7119, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 3380e050651e67648a3cf062d266c4b2, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c758447f60643dc41a79524126d77a5e, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: b8b79a23224484af2bd5d02e33e97648, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c2bfa30e3a73c45fc8df650af2bd489e, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: d953f8179a4e54c63942f4609784db40, type: 2}
+    m_Data: {fileID: 11400000, guid: 1549392bac70148fcbe5c69c43e17dc5, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: -1845927004730261087, guid: 36548adcdeceb4df2a8f344318ad86b0, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: b3666ff7d96d76b47889d54b9074d713, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 5882bdac00c923b49bdeeebd80250eb8, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 5721534238885786246, guid: 36548adcdeceb4df2a8f344318ad86b0, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 7176578981504245053, guid: 36548adcdeceb4df2a8f344318ad86b0, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: e1c52d3ccb9e14e78a3647db5ea3643e, type: 3}
+    m_Data: {fileID: -2111910590749685961, guid: 36548adcdeceb4df2a8f344318ad86b0, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 6
+  - m_RefCount: 1
     m_Data:
       e00: 1
       e01: 0
@@ -148,13 +78,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 6
+  - m_RefCount: 1
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -3, y: -4, z: 0}
-  m_Size: {x: 5, y: 4, z: 1}
+  m_Origin: {x: -6, y: -2, z: 0}
+  m_Size: {x: 6, y: 2, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -174,13 +104,13 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!483693784 &8441179662815597983
+--- !u!483693784 &1066372112012798035
 TilemapRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5328479089887147519}
+  m_GameObject: {fileID: 1443471109930704034}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -215,14 +145,14 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.245, y: 0.050000012, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!1 &7411661048762815539
+--- !u!1 &6761970483280466523
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,43 +160,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2208300256521384185}
-  - component: {fileID: 2391017523514047262}
+  - component: {fileID: 6706098969804547316}
+  - component: {fileID: 7828065520963878616}
   m_Layer: 31
-  m_Name: Isometric Palette
+  m_Name: tal new test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2208300256521384185
+--- !u!4 &6706098969804547316
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7411661048762815539}
+  m_GameObject: {fileID: 6761970483280466523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7270123407197776945}
+  - {fileID: 7326482936941422906}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!156049354 &2391017523514047262
+--- !u!156049354 &7828065520963878616
 Grid:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7411661048762815539}
+  m_GameObject: {fileID: 6761970483280466523}
   m_Enabled: 1
-  m_CellSize: {x: 0.9095238, y: 1.0476191, z: 0}
+  m_CellSize: {x: 1, y: 0.5, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 3
   m_CellSwizzle: 0
---- !u!114 &6788791723525952016
+--- !u!114 &1171943816924213134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,6 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 12395, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Palette Settings
   m_EditorClassIdentifier: 
-  cellSizing: 0
+  cellSizing: 100
   m_TransparencySortMode: 3
-  m_TransparencySortAxis: {x: 0, y: 1, z: 0}
+  m_TransparencySortAxis: {x: 0, y: 1, z: -0.25}
