@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2922291811242361679}
   - component: {fileID: 2922291811242361665}
   - component: {fileID: -2755947258631880430}
+  - component: {fileID: 4783704748883840937}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -87,6 +88,18 @@ MonoBehaviour:
   wallTile: {fileID: 5150466889257248711, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   tntTile: {fileID: 7932724438151317373, guid: 037f70959ac8cc942900fb8c85a1f793, type: 3}
   _isoRenderer: {fileID: 8023449800230301013}
+--- !u!114 &4783704748883840937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922291811242361674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef16c9f4175e94ce88001b0366b6b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9088269464671781630
 GameObject:
   m_ObjectHideFlags: 0

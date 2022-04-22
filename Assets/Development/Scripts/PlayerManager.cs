@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
     [SerializeField] private IsometricCharecterRenderer _isoRenderer;
-
+    
     #endregion
 
     #region fields
@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     private GameObject wallsObject;
     private GameObject groundObject;
     private GameObject sceneManager;
-
+    private Toturial _toturial;
     private Tilemap groundTileMap;
     public Tilemap GroundTileMap => groundTileMap;
     private Tilemap wallTileMap;
@@ -92,13 +92,18 @@ public class PlayerManager : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _monsterManager = GameObject.Find("Monster Manager").GetComponent<MonsterManager>();
         _isoRenderer = GetComponentInChildren<IsometricCharecterRenderer>();
-
+        _toturial = GetComponent<Toturial>();
+        _toturial.ShowKey(Toturial.Keys.StartKey);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Base"))
+        {
             _canBuy = true;
+            _toturial.ShowKey(Toturial.Keys.LbKey);
+            _toturial.ShowKey(Toturial.Keys.RbKey);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -108,6 +113,7 @@ public class PlayerManager : MonoBehaviour
         {
             other.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             _nearTile = other.gameObject;
+            _toturial.ShowKey(Toturial.Keys.LeftKey);
         }
     }
 
@@ -117,10 +123,26 @@ public class PlayerManager : MonoBehaviour
         {
             _nearTile.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             _nearTile = null;
+            _toturial.HideKey(Toturial.Keys.LeftKey);
+
         }
 
         if (other.gameObject.CompareTag("Base"))
+        {
             _canBuy = false;
+            _toturial.HideKey(Toturial.Keys.LbKey);
+            _toturial.HideKey(Toturial.Keys.RbKey);
+        }
+
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Button"))
+        {
+            _toturial.ShowKey(Toturial.Keys.RightKey);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -130,6 +152,7 @@ public class PlayerManager : MonoBehaviour
             _nearFriend = other.gameObject;
             _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -139,9 +162,13 @@ public class PlayerManager : MonoBehaviour
             _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
             _nearFriend = null;
         }
-        
+
         if (other.gameObject.CompareTag("Button") && _playersButtons.playerInReadyEnd(gameObject))
+        {
+            _toturial.ShowKey(Toturial.Keys.RightKey);
             _playersButtons.DecreaseReadyEnd(gameObject);
+        }
+
     }
 
     private void FixedUpdate()
@@ -253,6 +280,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SetReady()
     {
+        _toturial.HideKey(Toturial.Keys.StartKey);
         sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
 
