@@ -15,7 +15,8 @@ public class MonsterManager : MonoBehaviour
 
     [SerializeField] private float maxWaitTime;
     [SerializeField] private GameObject monsterPrefab;
-    [SerializeField] private float timeTillSpawnChange = 10;
+    [SerializeField] private float timeTillSpawnChange = 20;
+    [SerializeField] private float minSpawnRate;
     public GameObject baseObject;
     public List<Transform> players;
 
@@ -48,10 +49,10 @@ public class MonsterManager : MonoBehaviour
             return;
 
         curWaveTime += Time.deltaTime;
-        if (curWaveTime >= timeTillSpawnChange)
+        if (curWaveTime >= timeTillSpawnChange && minSpawnRate <= minWaitTime)
         {
-            minWaitTime -= 1;
-            maxWaitTime -= 1;
+            minWaitTime -= 0.5f;
+            maxWaitTime -= 0.5f;
             curWaveTime = 0;
         }
     }

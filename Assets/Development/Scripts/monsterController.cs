@@ -46,7 +46,6 @@ public class monsterController : MonoBehaviour
     void Update()
     {
         UpdateLifeTime();
-
         if (_target != null && !_isTouchingWall)
         {
             transform.position = Vector2.MoveTowards(transform.position,
@@ -134,6 +133,7 @@ public class monsterController : MonoBehaviour
 
         int minInd = Array.IndexOf(distances, distances.Min());
         _target = monsterManager.GetPlayerI(minInd);
+        _target = _target.GetChild(0);
     }
 
     #endregion

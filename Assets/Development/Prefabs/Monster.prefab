@@ -136,4 +136,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTimeOnWall: 3
   monsterSpeed: 2
-  timeUntillDead: 20
+  timeUntilDead: 20
+  monsterManager: {fileID: 0}
