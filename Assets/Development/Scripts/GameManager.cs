@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public static int WallTilePrice;
     public static int ExplodingTilePrice;
     public static bool GameOverFlag;
-    private bool onBoarding = true;
+    private bool _onBoarding = true;
     private int _readyCounter;
 
     #endregion
@@ -59,11 +59,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameOverFlag = false;
+        Score = 0;
+        _readyCounter = 0;
     }
 
     private void Update()
     {
-        if (!onBoarding)
+        if (!_onBoarding)
         {
             Score += Time.deltaTime;
         }
@@ -93,7 +95,7 @@ public class GameManager : MonoBehaviour
         _readyCounter += 1;
         if (_readyCounter == playersSpawnManager.playersSpawned)
         {
-            onBoarding = false;
+            _onBoarding = false;
             monsterManager.GetComponent<MonsterManager>().stopOnBoarding();
         }
     }
