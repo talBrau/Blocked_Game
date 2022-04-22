@@ -98,6 +98,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=1)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StartNewGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""473c374f-7a38-4f50-9b44-5e7a64dc052c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.6)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -331,6 +340,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""ReviveFriend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""576d2ec8-9b6b-4e68-b521-0c4259ca2928"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartNewGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31bf0b94-dc27-45ae-a064-207f0ba53960"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartNewGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -347,6 +378,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_SetReady = m_Player.FindAction("SetReady", throwIfNotFound: true);
         m_Player_SetReadyEndGame = m_Player.FindAction("SetReadyEndGame", throwIfNotFound: true);
         m_Player_ReviveFriend = m_Player.FindAction("ReviveFriend", throwIfNotFound: true);
+        m_Player_StartNewGame = m_Player.FindAction("StartNewGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -414,6 +446,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SetReady;
     private readonly InputAction m_Player_SetReadyEndGame;
     private readonly InputAction m_Player_ReviveFriend;
+    private readonly InputAction m_Player_StartNewGame;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -426,6 +459,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @SetReady => m_Wrapper.m_Player_SetReady;
         public InputAction @SetReadyEndGame => m_Wrapper.m_Player_SetReadyEndGame;
         public InputAction @ReviveFriend => m_Wrapper.m_Player_ReviveFriend;
+        public InputAction @StartNewGame => m_Wrapper.m_Player_StartNewGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -459,6 +493,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ReviveFriend.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReviveFriend;
                 @ReviveFriend.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReviveFriend;
                 @ReviveFriend.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReviveFriend;
+                @StartNewGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartNewGame;
+                @StartNewGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartNewGame;
+                @StartNewGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartNewGame;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -487,6 +524,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ReviveFriend.started += instance.OnReviveFriend;
                 @ReviveFriend.performed += instance.OnReviveFriend;
                 @ReviveFriend.canceled += instance.OnReviveFriend;
+                @StartNewGame.started += instance.OnStartNewGame;
+                @StartNewGame.performed += instance.OnStartNewGame;
+                @StartNewGame.canceled += instance.OnStartNewGame;
             }
         }
     }
@@ -501,5 +541,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnSetReady(InputAction.CallbackContext context);
         void OnSetReadyEndGame(InputAction.CallbackContext context);
         void OnReviveFriend(InputAction.CallbackContext context);
+        void OnStartNewGame(InputAction.CallbackContext context);
     }
 }

@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float moveSpeed = 4;
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
-     [SerializeField] private IsometricCharecterRenderer _isoRenderer;
+    [SerializeField] private IsometricCharecterRenderer _isoRenderer;
 
     #endregion
 
@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
 
     #region MonoBehaviour
 
-    private void Start()
+    private void Awake()
     {
         _playersButtons = GameObject.Find("Players Manager").GetComponent<PlayersButtons>();
         sceneManager = GameObject.Find("GameManager");
@@ -115,7 +115,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && isAlive)
         {
             _nearFriend = other.gameObject;
-            _nearFriend.GetComponent<SpriteRenderer>().color = Color.green;
+            _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
     }
 
@@ -123,7 +123,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && isAlive)
         {
-            _nearFriend.GetComponent<SpriteRenderer>().color = Color.gray;
+            _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
             _nearFriend = null;
         }
         
@@ -136,7 +136,6 @@ public class PlayerManager : MonoBehaviour
         _rb.velocity = _direction * moveSpeed;
         var inputVector = Vector2.ClampMagnitude(_direction, 1);
         _isoRenderer.SetDirection(inputVector);
-
     }
 
     #endregion
@@ -282,7 +281,7 @@ public class PlayerManager : MonoBehaviour
             var friendScript = _nearFriend.gameObject.GetComponent<PlayerManager>();
             friendScript.IsAlive = true;
             friendScript.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
-            friendScript.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            friendScript.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
         }
     }
 
@@ -291,7 +290,7 @@ public class PlayerManager : MonoBehaviour
         _monsterManager.RemovePlayer(transform.parent.gameObject);
         isAlive = false;
         GetComponent<CapsuleCollider2D>().isTrigger = true;
-        GetComponent<SpriteRenderer>().color = Color.gray;
+        GetComponentInChildren<SpriteRenderer>().color = Color.gray;
         if (_currentHoldTile)
         {
             Destroy(_currentHoldTile);
