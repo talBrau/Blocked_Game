@@ -8,6 +8,8 @@ public class TileScript : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private float onMoveTransparency = 0.5f;
 
+    [SerializeField] private float tileHealthDecrease = 5f;
+
     #endregion
     
     
@@ -20,6 +22,12 @@ public class TileScript : MonoBehaviour
     private bool _moving;
     private bool _canPlace;
     public bool CanPlace => _canPlace;
+    
+    private float _tileHealth = 1;
+    public float TileHealth
+    {
+        get => _tileHealth;
+    }
 
     #endregion
 
@@ -32,6 +40,15 @@ public class TileScript : MonoBehaviour
         _groundTilemap = _playerScript.GroundTileMap;
         GetComponent<EdgeCollider2D>().isTrigger = true;
         GetComponent<SpriteRenderer>().color = new Color(1,1,1, onMoveTransparency);
+    }
+
+    public void UpdateTileHealth(float value)
+    {
+        _tileHealth -= value * tileHealthDecrease;
+        print(_tileHealth);
+        var colorChange = (value * tileHealthDecrease ) / 6; // we dont want the tile to turn completely black
+        var curColor = GetComponent<SpriteRenderer>().color;
+        GetComponent<SpriteRenderer>().color = new Color(curColor.r-colorChange,curColor.g-colorChange,curColor.b-colorChange);
     }
 
     public void placeMovingTile()

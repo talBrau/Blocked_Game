@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7701050e3d4477b95ee92c5f8427e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimeOnWall: 5
   monsterSpeed: 2
-  timeUntilDead: 10
+  timeUntilDead: 15
   monsterManager: {fileID: 0}
