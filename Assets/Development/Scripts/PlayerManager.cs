@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -29,7 +28,6 @@ public class PlayerManager : MonoBehaviour
     private GameObject groundObject;
     private GameObject sceneManager;
 
-
     private Tilemap groundTileMap;
     public Tilemap GroundTileMap => groundTileMap;
     private Tilemap wallTileMap;
@@ -39,18 +37,17 @@ public class PlayerManager : MonoBehaviour
 
     private GameObject _currentHoldTile;
 
-    //Detonate tile
-    public bool isHoldingDetonateTrigger = false;
-
     //endGame
-    private bool isStandingOnButton = false;
-    [SerializeField] private PlayersDetonate _playersDetonate;
+
+    private bool isStandingOnButton;
 
     public bool IsStandingOnButton
     {
         get => isStandingOnButton;
         set => isStandingOnButton = value;
     }
+
+    private bool _boughtTNT;
 
     private GameObject _nearFriend;
     private bool isAlive = true;
@@ -62,12 +59,16 @@ public class PlayerManager : MonoBehaviour
     }
 
     private MonsterManager _monsterManager;
+    private PlayersDetonate _playersDetonate;
+    private bool _buttonPressed;
+
     #endregion
 
     #region MonoBehaviour
 
     private void Start()
     {
+        _playersDetonate = GameObject.Find("Players Manager").GetComponent<PlayersDetonate>();
         sceneManager = GameObject.Find("GameManager");
         wallsObject = GameObject.Find("Walls");
         wallTileMap = wallsObject.GetComponent<Tilemap>();
@@ -85,7 +86,8 @@ public class PlayerManager : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall") && !_currentHoldTile && !_nearTile)
+        if ((other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Exploding Tile")) &&
+            (!_currentHoldTile && !_nearTile))
         {
             other.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             _nearTile = other.gameObject;
@@ -94,7 +96,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall") && _nearTile)
+        if ((other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Exploding Tile")) && _nearTile)
         {
             _nearTile.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             _nearTile = null;
@@ -138,7 +140,7 @@ public class PlayerManager : MonoBehaviour
             _direction = Vector3.zero;
             return;
         }
-        
+
         _direction = input;
         if (_direction != _lastDir && _direction != Vector3.zero)
             _lastDir = _direction;
@@ -153,7 +155,7 @@ public class PlayerManager : MonoBehaviour
                 print("Score to low");
                 return;
             }
-            
+
             GameManager.Score -= GameManager.WallTilePrice;
             var newtile = Instantiate(wallTile, transform.position, transform.rotation, wallsObject.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
@@ -161,6 +163,12 @@ public class PlayerManager : MonoBehaviour
         }
         else if (_currentHoldTile)
         {
+            if (_currentHoldTile.gameObject.CompareTag("Exploding Tile") && _boughtTNT)
+            {
+                _boughtTNT = false;
+                _playersDetonate.addToList(_currentHoldTile);
+            }
+
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _currentHoldTile = null;
         }
@@ -176,15 +184,22 @@ public class PlayerManager : MonoBehaviour
                 print("Score to low");
                 return;
             }
-            
+
             GameManager.Score -= GameManager.ExplodingTilePrice;
             var newtile = Instantiate(tntTile, transform.position, transform.rotation, wallsObject.transform);
             newtile.GetComponent<TileScript>().setMovingTile(gameObject);
             _currentHoldTile = newtile;
+            _boughtTNT = true;
         }
         else if (_currentHoldTile)
         {
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
+            if (_currentHoldTile.gameObject.CompareTag("Exploding Tile") && _boughtTNT)
+            {
+                _boughtTNT = false;
+                _playersDetonate.addToList(_currentHoldTile);
+            }
+
             _currentHoldTile = null;
         }
     }
@@ -205,6 +220,12 @@ public class PlayerManager : MonoBehaviour
         {
             if (!_currentHoldTile.GetComponent<TileScript>().CanPlace)
                 return;
+            if (_currentHoldTile.gameObject.CompareTag("Exploding Tile") && _boughtTNT)
+            {
+                _boughtTNT = false;
+                _playersDetonate.addToList(_currentHoldTile);
+            }
+
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _currentHoldTile = null;
         }
@@ -215,12 +236,24 @@ public class PlayerManager : MonoBehaviour
         sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
 
-    public void DetonateTnt()
+    public void DetonateTnt(bool startPress)
     {
         if (isStandingOnButton)
         {
-            _playersDetonate.IncreaseReadyDetonate();
+            if (startPress)
+            {
+                _playersDetonate.IncreaseReadyDetonate();
+                _buttonPressed = true;
+                return;
+            }
         }
+
+        if (_buttonPressed)
+        {
+            _playersDetonate.DecreaseReadyDetonate();
+            _buttonPressed = false;
+        }
+            
     }
 
     public void SetReadyEndGame()
@@ -242,7 +275,7 @@ public class PlayerManager : MonoBehaviour
             friendScript.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
-    
+
     public void playerDead()
     {
         _monsterManager.RemovePlayer(transform);
@@ -255,6 +288,6 @@ public class PlayerManager : MonoBehaviour
             _currentHoldTile = null;
         }
     }
-    
+
     #endregion
 }

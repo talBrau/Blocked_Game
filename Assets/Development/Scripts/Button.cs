@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Button : MonoBehaviour
@@ -10,17 +7,17 @@ public class Button : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == Myplayer.name)
+        if (col.gameObject.CompareTag("Player"))
         {
-            Myplayer.GetComponent<PlayerManager>().IsStandingOnButton = true;
+            col.gameObject.GetComponent<PlayerManager>().IsStandingOnButton = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name ==  Myplayer.name)
+        if (other.gameObject.CompareTag("Player"))
         {
-            Myplayer.GetComponent<PlayerManager>().IsStandingOnButton = false;
+            other.gameObject.GetComponent<PlayerManager>().IsStandingOnButton = false;
         }    
     }
 }

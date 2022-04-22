@@ -40,16 +40,8 @@ public class TileScript : MonoBehaviour
         
         GetComponent<EdgeCollider2D>().isTrigger = false;
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        print(_wallsTilemap.CellToWorld(_wallsTilemap.WorldToCell(transform.position)));
-        print(_wallsTilemap.HasTile(_wallsTilemap.WorldToCell(transform.position)));
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        print(other.gameObject.name);
-        print(other.gameObject.tag);
-    }
-    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Wall") && _moving && !_canPlace)
