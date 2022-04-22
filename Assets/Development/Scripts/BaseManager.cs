@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BaseManager : MonoBehaviour
@@ -18,18 +17,13 @@ public class BaseManager : MonoBehaviour
             baseHealth -= 1;
             Destroy(other.gameObject);
             if (baseHealth == 0)
-                BaseDead();
+                GameManager.InvokeGameOver();
         }
     }
 
     #endregion
     
     #region Methods
-
-    private void BaseDead()
-    {
-        print("Game Over");
-    }
-
+    
     #endregion
 }

@@ -18,7 +18,7 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private float timeTillSpawnChange = 20;
     [SerializeField] private float minSpawnRate;
     public GameObject baseObject;
-    public List<Transform> players;
+    public List<GameObject> players;
 
     #endregion
 
@@ -76,11 +76,11 @@ public class MonsterManager : MonoBehaviour
     }
 
     public int GetPlayersCount => players.Count;
-    public Transform GetPlayerI(int i) => players[i];
+    public GameObject GetPlayerI(int i) => players[i];
 
-    public void RemovePlayer(Transform player) => players.Remove(player);
+    public void RemovePlayer(GameObject player) => players.Remove(player);
 
-    public void AddPlayer(Transform player) => players.Add(player);
+    public void AddPlayer(GameObject player) => players.Add(player);
 
     public void stopOnBoarding()
     {

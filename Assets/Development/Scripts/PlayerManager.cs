@@ -155,7 +155,6 @@ public class PlayerManager : MonoBehaviour
         {
             if (GameManager.Score < GameManager.WallTilePrice)
             {
-                print("Score to low");
                 return;
             }
 
@@ -184,7 +183,6 @@ public class PlayerManager : MonoBehaviour
             if (GameManager.Score < GameManager.ExplodingTilePrice)
             {
                 // TODO
-                print("Score to low");
                 return;
             }
 
@@ -270,7 +268,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_nearFriend && !(_nearFriend.GetComponent<PlayerManager>().isAlive))
         {
-            _monsterManager.AddPlayer(_nearFriend.transform);
+            _monsterManager.AddPlayer(_nearFriend.transform.parent.gameObject);
             var friendScript = _nearFriend.gameObject.GetComponent<PlayerManager>();
             friendScript.IsAlive = true;
             friendScript.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
@@ -280,7 +278,7 @@ public class PlayerManager : MonoBehaviour
 
     public void playerDead()
     {
-        _monsterManager.RemovePlayer(transform);
+        _monsterManager.RemovePlayer(transform.parent.gameObject);
         isAlive = false;
         GetComponent<CapsuleCollider2D>().isTrigger = true;
         GetComponent<SpriteRenderer>().color = Color.gray;

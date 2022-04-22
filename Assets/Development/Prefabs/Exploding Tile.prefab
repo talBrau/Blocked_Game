@@ -139,4 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   radius: 5
-  explosionForce: 5000
+  explosionForce: 500

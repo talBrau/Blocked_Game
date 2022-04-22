@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,6 +22,12 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Events
+    public static event Action GameOver;
+    public static event Action Bale;
+    
+    #endregion
+    
     #region MonoBehaviour
 
     private void Update()
@@ -38,6 +45,9 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Methods
+
     public void increaseReadyCounter()
     {
         _readyCounter += 1;
@@ -47,5 +57,18 @@ public class GameManager : MonoBehaviour
             monsterManager.GetComponent<MonsterManager>().stopOnBoarding();
         }
     }
+
+    public static void InvokeGameOver()
+    {
+        GameOver?.Invoke();
+    }
+
+    public static void InvokeBale()
+    {
+        Bale?.Invoke();
+    }
     
+
+    #endregion
+
 }

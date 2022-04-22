@@ -19,13 +19,11 @@ public class explode : MonoBehaviour
 
             if (col.CompareTag("Player"))
             {
-                print("playerBoom");
                 var rb = col.gameObject.GetComponent<Rigidbody2D>();
                 Vector2 dir = rb.position - new Vector2(transform.position.x,transform.position.y);
                 rb.AddForce(dir*explosionForce);
             }
         }
-        print("boom");
         Destroy(gameObject);
     }
 }
