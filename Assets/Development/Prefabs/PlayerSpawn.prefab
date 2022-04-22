@@ -189,7 +189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4283469114256185448}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: UnreadyEndGame
+        m_MethodName: ResetGame
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -199,8 +199,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b4722c00-c29e-4321-81fa-1c22dd47b41c
-    m_ActionName: Player/SetUnreadyEndGame[/XInputControllerWindows/buttonNorth]
+    m_ActionId: 473c374f-7a38-4f50-9b44-5e7a64dc052c
+    m_ActionName: Player/StartNewGame[/XInputControllerWindows/start,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

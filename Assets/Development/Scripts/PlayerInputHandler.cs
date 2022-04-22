@@ -87,4 +87,11 @@ public class PlayerInputHandler : MonoBehaviour
             return;
         _PlayerManager.SetReadyEndGame();
     }
+    public void ResetGame(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        if (GameManager.GameOverFlag)
+            GameManager.InvokeResetGame();
+    }
 }

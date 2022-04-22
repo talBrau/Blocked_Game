@@ -45,7 +45,6 @@ public class TileScript : MonoBehaviour
     public void UpdateTileHealth(float value)
     {
         _tileHealth -= value * tileHealthDecrease;
-        print(_tileHealth);
         var colorChange = (value * tileHealthDecrease ) / 6; // we dont want the tile to turn completely black
         var curColor = GetComponent<SpriteRenderer>().color;
         GetComponent<SpriteRenderer>().color = new Color(curColor.r-colorChange,curColor.g-colorChange,curColor.b-colorChange);
