@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 public class MonsterController : MonoBehaviour
 {
     #region Inspector
-
-    [SerializeField] private float maxTimeOnWall = 10;
+    
     [SerializeField] private float monsterSpeed;
     [SerializeField] private float timeUntilDead = 10;
 
@@ -19,12 +18,10 @@ public class MonsterController : MonoBehaviour
     private PlayersButtons _playersButtons;
     public MonsterManager monsterManager;
     private bool _isTouchingWall;
-    private float _timeOnWall;
     private GameObject _curTile;
     private Transform _target;
 
     private float _timeAlive;
-    // private Color _defaultTileColor;
 
     #endregion
 
@@ -65,7 +62,6 @@ public class MonsterController : MonoBehaviour
             //change color of tile to indicate its being eaten
             obj.GetComponent<SpriteRenderer>().color = Color.gray;
             _isTouchingWall = true;
-            _timeOnWall = 0;
             _curTile = obj;
         }
 
@@ -89,15 +85,21 @@ public class MonsterController : MonoBehaviour
 
     private void UpdateTileTouch()
     {
-        _timeOnWall += Time.deltaTime;
-        if (_timeOnWall > maxTimeOnWall || _curTile == null)
+        var value = Time.deltaTime;
+        if (!_curTile)
+        {
+            _curTile = null;
+            _isTouchingWall = false;
+            return;
+        }
+        _curTile.GetComponent<TileScript>().UpdateTileHealth(value);
+        if (_curTile.GetComponent<TileScript>().TileHealth <= 0)
         {
             if (_playersButtons.explodingTiles.Contains(_curTile))
                 _playersButtons.explodingTiles.Remove(_curTile);
             Destroy(_curTile);
             _curTile = null;
             _isTouchingWall = false;
-            _timeOnWall = 0;
         }
     }
 
@@ -105,14 +107,8 @@ public class MonsterController : MonoBehaviour
     {
         if (_timeAlive > timeUntilDead)
         {
-            if (_curTile != null)
-            {
-                _curTile.GetComponent<SpriteRenderer>().color = Color.white;
-            }
-
             Destroy(gameObject);
         }
-
         _timeAlive += Time.deltaTime;
     }
 

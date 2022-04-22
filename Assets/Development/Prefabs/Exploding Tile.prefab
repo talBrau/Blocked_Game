@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 0.1
 --- !u!114 &9187880348362456324
 MonoBehaviour:
   m_ObjectHideFlags: 0
