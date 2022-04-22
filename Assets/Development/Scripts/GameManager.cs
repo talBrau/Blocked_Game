@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayersSpawnManager playersSpawnManager;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject gameWonUI;
+    [SerializeField] private TextMeshProUGUI gameWonScore;
+    [SerializeField] private GameObject newHighScore;
 
     #endregion
 
@@ -59,13 +63,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameOverFlag = false;
+        gameOverUI.SetActive(false);
+        gameWonUI.SetActive(false);
         Score = 0;
         _readyCounter = 0;
     }
 
     private void Update()
     {
-        if (!_onBoarding)
+        if (!_onBoarding && !GameOverFlag)
         {
             Score += Time.deltaTime;
         }
@@ -77,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     private void loadScene()
     { 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Prototype");
     }
     private void showGameOverScreen()
     {
@@ -88,6 +94,12 @@ public class GameManager : MonoBehaviour
     private void showGameWonScreen()
     {
         gameWonUI.SetActive(true);
+        gameWonScore.text = Math.Round(Score).ToString();
+        if (Score >= PlayerPrefs.GetInt("highscore", 0))
+        {
+            PlayerPrefs.SetInt("highscore", (int) math.round(Score));
+            newHighScore.SetActive(true);
+        }
         GameOverFlag = true;
     }
     public void increaseReadyCounter()

@@ -37,7 +37,6 @@ namespace Development.Scripts
            
 
             //tell the animator to play the requested state
-            print(directionArray[lastDirection]);
             animator.Play(directionArray[lastDirection]);
         }
 

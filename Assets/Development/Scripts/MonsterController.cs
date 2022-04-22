@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class MonsterController : MonoBehaviour
 {
     #region Inspector
-    
+
     [SerializeField] private float monsterSpeed;
     [SerializeField] private float timeUntilDead = 10;
 
@@ -26,7 +26,6 @@ public class MonsterController : MonoBehaviour
     private float _timeAlive;
 
     #endregion
-
 
     #region MonoBehaviour
 
@@ -50,10 +49,10 @@ public class MonsterController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position,
                 _target.position, Time.deltaTime * monsterSpeed);
-            var direction = Vector2.ClampMagnitude((_target.position-transform.position), 1);
+            var direction = Vector2.ClampMagnitude((_target.position - transform.position), 1);
             _isometricRenderer.SetDirection(direction);
         }
-        
+
         if (_isTouchingWall)
         {
             UpdateTileTouch();
@@ -76,13 +75,13 @@ public class MonsterController : MonoBehaviour
             if (!obj.GetComponent<PlayerManager>().IsAlive)
                 return;
             obj.GetComponent<PlayerManager>().playerDead();
-            if (monsterManager.GetPlayersCount == 0) 
+            if (monsterManager.GetPlayersCount == 0)
             {
                 GameManager.InvokeGameOver();
             }
+
             Destroy(gameObject);
         }
-
     }
 
     #endregion
@@ -98,6 +97,7 @@ public class MonsterController : MonoBehaviour
             _isTouchingWall = false;
             return;
         }
+
         _curTile.GetComponent<TileScript>().UpdateTileHealth(value);
         if (_curTile.GetComponent<TileScript>().TileHealth <= 0)
         {
@@ -115,6 +115,7 @@ public class MonsterController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         _timeAlive += Time.deltaTime;
     }
 
