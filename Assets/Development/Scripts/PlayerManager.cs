@@ -1,3 +1,4 @@
+using System;
 using Development.Scripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -67,6 +68,18 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region MonoBehaviour
+
+    private void OnEnable()
+    {
+        GameManager.Bale += hidePlayer;
+        GameManager.GameOver += hidePlayer;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Bale -= hidePlayer;
+        GameManager.GameOver -= hidePlayer;
+    }
 
     private void Awake()
     {
@@ -153,9 +166,6 @@ public class PlayerManager : MonoBehaviour
         _direction = input;
         if (_direction != _lastDir && _direction != Vector3.zero)
             _lastDir = _direction;
-       
-
-        
     }
 
     public void BuyWallTile()
@@ -296,6 +306,11 @@ public class PlayerManager : MonoBehaviour
             Destroy(_currentHoldTile);
             _currentHoldTile = null;
         }
+    }
+
+    private void hidePlayer()
+    {
+        gameObject.SetActive(false);
     }
 
     #endregion

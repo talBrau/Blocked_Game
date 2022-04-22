@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject monsterManager;
     [SerializeField] private PlayersSpawnManager playersSpawnManager;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject gameWonUI;
 
     #endregion
 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     public static int WallTilePrice;
     public static int ExplodingTilePrice;
     public static bool GameOverFlag;
-    private bool onBoarding = true;
+    private bool _onBoarding = true;
     private int _readyCounter;
 
     #endregion
@@ -39,26 +40,35 @@ public class GameManager : MonoBehaviour
     {
         GameOver += showGameOverScreen;
         ResetGame += loadScene;
+        Bale += showGameWonScreen;
     }
 
     private void OnDestroy()
     {
         GameOver -= showGameOverScreen;
         ResetGame -= loadScene;
-    }
-
-    private void Update()
-    {
-        if (!onBoarding)
-        {
-            Score += Time.deltaTime;
-        }
+        Bale += showGameWonScreen;
     }
 
     private void Awake()
     {
         WallTilePrice = wallTilePrice;
         ExplodingTilePrice = explodingTilePrice;
+    }
+
+    private void Start()
+    {
+        GameOverFlag = false;
+        Score = 0;
+        _readyCounter = 0;
+    }
+
+    private void Update()
+    {
+        if (!_onBoarding)
+        {
+            Score += Time.deltaTime;
+        }
     }
 
     #endregion
@@ -74,12 +84,18 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
         GameOverFlag = true;
     }
+
+    private void showGameWonScreen()
+    {
+        gameWonUI.SetActive(true);
+        GameOverFlag = true;
+    }
     public void increaseReadyCounter()
     {
         _readyCounter += 1;
         if (_readyCounter == playersSpawnManager.playersSpawned)
         {
-            onBoarding = false;
+            _onBoarding = false;
             monsterManager.GetComponent<MonsterManager>().stopOnBoarding();
         }
     }

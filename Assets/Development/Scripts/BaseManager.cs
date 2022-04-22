@@ -14,7 +14,8 @@ public class BaseManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Monster"))
         {
-            baseHealth -= 1;
+            if (!GameManager.GameOverFlag)
+                baseHealth -= 1;
             Destroy(other.gameObject);
             if (baseHealth == 0)
                 GameManager.InvokeGameOver();

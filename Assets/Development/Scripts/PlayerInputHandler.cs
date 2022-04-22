@@ -35,7 +35,10 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        _PlayerManager.Move(context.ReadValue<Vector2>());
+        if (context.performed)
+            _PlayerManager.Move(context.ReadValue<Vector2>());
+        else
+            _PlayerManager.Move(Vector2.zero);
     }
 
     public void BuyWallTile(InputAction.CallbackContext context)
