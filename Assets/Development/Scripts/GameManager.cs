@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject monsterManager;
     [SerializeField] private PlayersSpawnManager playersSpawnManager;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject gameWonUI;
 
     #endregion
 
@@ -39,12 +40,25 @@ public class GameManager : MonoBehaviour
     {
         GameOver += showGameOverScreen;
         ResetGame += loadScene;
+        Bale += showGameWonScreen;
     }
 
     private void OnDestroy()
     {
         GameOver -= showGameOverScreen;
         ResetGame -= loadScene;
+        Bale += showGameWonScreen;
+    }
+
+    private void Awake()
+    {
+        WallTilePrice = wallTilePrice;
+        ExplodingTilePrice = explodingTilePrice;
+    }
+
+    private void Start()
+    {
+        GameOverFlag = false;
     }
 
     private void Update()
@@ -53,12 +67,6 @@ public class GameManager : MonoBehaviour
         {
             Score += Time.deltaTime;
         }
-    }
-
-    private void Awake()
-    {
-        WallTilePrice = wallTilePrice;
-        ExplodingTilePrice = explodingTilePrice;
     }
 
     #endregion
@@ -72,6 +80,12 @@ public class GameManager : MonoBehaviour
     private void showGameOverScreen()
     {
         gameOverUI.SetActive(true);
+        GameOverFlag = true;
+    }
+
+    private void showGameWonScreen()
+    {
+        gameWonUI.SetActive(true);
         GameOverFlag = true;
     }
     public void increaseReadyCounter()
