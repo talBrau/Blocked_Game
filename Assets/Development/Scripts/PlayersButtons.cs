@@ -4,25 +4,24 @@ using UnityEngine;
 public class PlayersButtons : MonoBehaviour
 {
     private PlayersSpawnManager _spawnManager;
-    private bool readyToExplode;
-    private List<GameObject> readyEndGameList;
-    private int readyCountDetonate;
+    private List<GameObject> _readyEndGameList;
+    private int _readyCountDetonate;
 
     public List<GameObject> explodingTiles;
     void Start()
     {
-        readyEndGameList = new List<GameObject>();
+        _readyEndGameList = new List<GameObject>();
         _spawnManager = GetComponent<PlayersSpawnManager>();
     }
     
     public void IncreaseReadyDetonate()
     {
-        readyCountDetonate++;
-        if (readyCountDetonate >= (_spawnManager.playersSpawned/2))
+        _readyCountDetonate++;
+        if (_readyCountDetonate >= (_spawnManager.playersSpawned/2))
         {
             foreach (var tile in explodingTiles)
             {
-                tile.GetComponent<explode>().explodeTile();
+                tile.GetComponent<ExplodeScript>().explodeTile();
             }
             explodingTiles = new List<GameObject>();
         }
@@ -30,7 +29,7 @@ public class PlayersButtons : MonoBehaviour
 
     public void DecreaseReadyDetonate()
     {
-        readyCountDetonate--;
+        _readyCountDetonate--;
     }
     
     public void addToList(GameObject explodingTile)
@@ -40,8 +39,8 @@ public class PlayersButtons : MonoBehaviour
     
     public void IncreaseReadyEnd(GameObject player)
     {
-        readyEndGameList.Add(player);
-        if (readyEndGameList.Count == _spawnManager.playersSpawned)
+        _readyEndGameList.Add(player);
+        if (_readyEndGameList.Count == _spawnManager.playersSpawned)
         {
            GameManager.InvokeBale();
         }
@@ -49,12 +48,12 @@ public class PlayersButtons : MonoBehaviour
     
     public void DecreaseReadyEnd(GameObject player)
     {
-        readyEndGameList.Remove(player);
+        _readyEndGameList.Remove(player);
     }
 
     public bool playerInReadyEnd(GameObject player)
     {
-        return readyEndGameList.Contains(player);
+        return _readyEndGameList.Contains(player);
     }
 
 

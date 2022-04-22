@@ -1,12 +1,10 @@
 using System;
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 
-public class monsterController : MonoBehaviour
+public class MonsterController : MonoBehaviour
 {
     #region Inspector
 

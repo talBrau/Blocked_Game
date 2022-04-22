@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class explode : MonoBehaviour
+public class ExplodeScript : MonoBehaviour
 {
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float radius;
