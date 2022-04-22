@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class explode : MonoBehaviour
+public class ExplodeScript : MonoBehaviour
 {
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float radius;
@@ -19,13 +19,11 @@ public class explode : MonoBehaviour
 
             if (col.CompareTag("Player"))
             {
-                print("playerBoom");
                 var rb = col.gameObject.GetComponent<Rigidbody2D>();
                 Vector2 dir = rb.position - new Vector2(transform.position.x,transform.position.y);
                 rb.AddForce(dir*explosionForce);
             }
         }
-        print("boom");
         Destroy(gameObject);
     }
 }

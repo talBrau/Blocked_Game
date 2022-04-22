@@ -1,12 +1,10 @@
 using System;
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 
-public class monsterController : MonoBehaviour
+public class MonsterController : MonoBehaviour
 {
     #region Inspector
 
@@ -18,10 +16,11 @@ public class monsterController : MonoBehaviour
 
     #region Fields
 
+    private PlayersButtons _playersButtons;
     public MonsterManager monsterManager;
-    private bool _isTouchingWall = false;
-    private float _timeOnWall = 0;
-    private GameObject _curTile = null;
+    private bool _isTouchingWall;
+    private float _timeOnWall;
+    private GameObject _curTile;
     private Transform _target;
 
     private float _timeAlive;
@@ -34,13 +33,13 @@ public class monsterController : MonoBehaviour
 
     void Start()
     {
+        _playersButtons = GameObject.Find("Players Manager").GetComponent<PlayersButtons>();
         monsterManager = FindObjectOfType<MonsterManager>();
         int targetPlayerOrBase = Random.Range(0, 2);
         if (targetPlayerOrBase == 0)
             InvokeRepeating(nameof(LookForTarget), 0f, 3f);
         else
             _target = monsterManager.baseObject.transform;
-        print(targetPlayerOrBase);
     }
 
     void Update()
@@ -61,11 +60,10 @@ public class monsterController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         GameObject obj = col.gameObject;
-        if (!_isTouchingWall && obj.CompareTag("Wall"))
+        if (!_isTouchingWall && (obj.CompareTag("Wall") || obj.CompareTag("Exploding Tile")))
         {
             //change color of tile to indicate its being eaten
             obj.GetComponent<SpriteRenderer>().color = Color.gray;
-            print("gray?");
             _isTouchingWall = true;
             _timeOnWall = 0;
             _curTile = obj;
@@ -76,9 +74,9 @@ public class monsterController : MonoBehaviour
             if (!obj.GetComponent<PlayerManager>().IsAlive)
                 return;
             obj.GetComponent<PlayerManager>().playerDead();
-            if (monsterManager.GetPlayersCount == 0) //endgame
+            if (monsterManager.GetPlayersCount == 0) 
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameManager.InvokeGameOver();
             }
             Destroy(gameObject);
         }
@@ -94,6 +92,8 @@ public class monsterController : MonoBehaviour
         _timeOnWall += Time.deltaTime;
         if (_timeOnWall > maxTimeOnWall || _curTile == null)
         {
+            if (_playersButtons.explodingTiles.Contains(_curTile))
+                _playersButtons.explodingTiles.Remove(_curTile);
             Destroy(_curTile);
             _curTile = null;
             _isTouchingWall = false;
@@ -122,17 +122,17 @@ public class monsterController : MonoBehaviour
         int playerCount = monsterManager.GetPlayersCount;
         if (playerCount == 0)
         {
-            return; // TODO: INVOKE ENDGAME WHEN MERGED
+            return;
         }
 
         float[] distances = new float[playerCount];
         for (int i = 0; i < playerCount; i++)
         {
-            distances[i] = Vector3.Distance(monsterManager.GetPlayerI(i).position, transform.position);
+            distances[i] = Vector3.Distance(monsterManager.GetPlayerI(i).transform.position, transform.position);
         }
 
         int minInd = Array.IndexOf(distances, distances.Min());
-        _target = monsterManager.GetPlayerI(minInd);
+        _target = monsterManager.GetPlayerI(minInd).transform;
         _target = _target.GetChild(0);
     }
 
