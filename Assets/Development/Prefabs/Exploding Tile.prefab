@@ -138,6 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd32d5d50a614b17b7c791591b763d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  explosionEffect: {fileID: 139366, guid: b59c12c3285eb4922a876b9deda5266e, type: 3}
   radius: 5
   explosionForce: 500

@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &324431
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -332,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851802570420706188, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8851802570420706188, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &85620034
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -548,6 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &101492138
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -674,6 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &106737794
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -870,6 +874,8 @@ MonoBehaviour:
   explodingTilePrice: 5
   monsterManager: {fileID: 1070295335}
   playersSpawnManager: {fileID: 537211665}
+  gameOverUI: {fileID: 0}
+  gameWonUI: {fileID: 0}
 --- !u!4 &124433613
 Transform:
   m_ObjectHideFlags: 0
@@ -882,7 +888,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 15.792, y: 0, z: 0}
 --- !u!1 &177342201
 GameObject:
@@ -930,6 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &177342204
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1056,6 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &188930347
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1182,6 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &190096492
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1308,6 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &192091228
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1434,6 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &210610834
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1560,6 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &214397326
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1686,6 +1698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &246995472
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1812,6 +1825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &269929018
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -16338,6 +16352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &372031823
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -26642,6 +26657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &406171760
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -26838,6 +26854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &427610676
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -26964,6 +26981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &435194933
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -27065,7 +27083,7 @@ PrefabInstance:
       objectReference: {fileID: -3603551787418745952, guid: 36548adcdeceb4df2a8f344318ad86b0, type: 3}
     - target: {fileID: 8752444258963808360, guid: dd31b3327aba749e980346b538e83c38, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8752444258963808360, guid: dd31b3327aba749e980346b538e83c38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27127,7 +27145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8918468411528286363, guid: fdff97f1639ab634bb2b5f6984f7a4e3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8918468411528286363, guid: fdff97f1639ab634bb2b5f6984f7a4e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27218,6 +27236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &506559159
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -27402,7 +27421,7 @@ Transform:
   m_Children:
   - {fileID: 1513726282}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &537211665
 MonoBehaviour:
@@ -27486,6 +27505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &561430540
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -27612,6 +27632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &564216520
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -27738,6 +27759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &571756853
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -27864,6 +27886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &572025959
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -27990,6 +28013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &596827196
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28116,6 +28140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &659618736
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28242,6 +28267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &671360895
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28368,6 +28394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &673440457
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28494,6 +28521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &706869489
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28620,6 +28648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &736673469
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28746,6 +28775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &763417505
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28872,6 +28902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &788699330
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -28998,6 +29029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &792725410
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29124,6 +29156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &802223067
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29250,6 +29283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &850014384
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29376,6 +29410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &887865635
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29502,6 +29537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &894775325
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29628,6 +29664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &941590452
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29754,6 +29791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &960241677
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29880,6 +29918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1015904956
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30006,6 +30045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1017214273
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30132,6 +30172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1031820766
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30263,6 +30304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1076973624
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30389,6 +30431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1078112782
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30515,6 +30558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1099756293
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30641,6 +30685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1145997230
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30767,6 +30812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1146688287
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30993,6 +31039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1191278348
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31119,6 +31166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1198404812
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31245,6 +31293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1198464984
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31371,6 +31420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1210203222
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31497,6 +31547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1217699595
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31623,6 +31674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1223512145
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31749,6 +31801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1236904753
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -31875,6 +31928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1251487748
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32001,6 +32055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1252779676
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32276,6 +32331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1260349011
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32402,6 +32458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1279887591
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32528,6 +32585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1294664290
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32654,6 +32712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1300218648
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32780,6 +32839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1304320584
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -32911,6 +32971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1334541634
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33037,6 +33098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1344581986
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33163,6 +33225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1352154653
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33289,6 +33352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1366958601
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33415,6 +33479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1375686221
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33541,6 +33606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1376525478
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33697,6 +33763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1400905670
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -33957,6 +34024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1409764449
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -34083,6 +34151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1411207137
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -34209,6 +34278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1447766396
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -34549,6 +34619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1472320485
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -34709,6 +34780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1523885924
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -34835,6 +34907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1539777343
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -34961,6 +35034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1586240024
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35087,6 +35161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1589465850
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35213,6 +35288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1611510174
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35339,6 +35415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1618677053
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35465,6 +35542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1625679447
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35591,6 +35669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1630559260
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35717,6 +35796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1646168703
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -35843,6 +35923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1683117239
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36039,6 +36120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1723827130
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36165,6 +36247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1728892124
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36291,6 +36374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1926832763
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36417,6 +36501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1929809754
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36543,6 +36628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1939050547
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36669,6 +36755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &1965117451
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36795,6 +36882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2005450501
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -36921,6 +37009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2050081536
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37047,6 +37136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2056342661
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37173,6 +37263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2063241644
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37329,6 +37420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2087518254
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37485,6 +37577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2095926276
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37611,6 +37704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2099007336
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37737,6 +37831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2101096740
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37863,6 +37958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2105821077
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -37989,6 +38085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2106152795
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -38135,6 +38232,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8752444258963808360, guid: dd31b3327aba749e980346b538e83c38, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752444258963808360, guid: dd31b3327aba749e980346b538e83c38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.08
       objectReference: {fileID: 0}
@@ -38215,6 +38316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
+  tileHealthDecrease: 5
 --- !u!68 &2125157194
 EdgeCollider2D:
   m_ObjectHideFlags: 0
