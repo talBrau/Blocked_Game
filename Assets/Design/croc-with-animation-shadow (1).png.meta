@@ -1,0 +1,1260 @@
+fileFormatVersion: 2
+guid: c1fc7392c5c7a47f5a6633c3420532f1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5466170961040592459
+    second: croc-with-animation-shadow (1)_0
+  - first:
+      213: -8337931585464245187
+    second: croc-with-animation-shadow (1)_1
+  - first:
+      213: 258089817589989634
+    second: croc-with-animation-shadow (1)_2
+  - first:
+      213: 8116343370670814918
+    second: croc-with-animation-shadow (1)_3
+  - first:
+      213: -8169399527566456738
+    second: croc-with-animation-shadow (1)_4
+  - first:
+      213: 4016743644381915249
+    second: croc-with-animation-shadow (1)_5
+  - first:
+      213: -1906913179949523011
+    second: croc-with-animation-shadow (1)_6
+  - first:
+      213: -1907716823198089601
+    second: croc-with-animation-shadow (1)_7
+  - first:
+      213: 6431353575828050324
+    second: croc-with-animation-shadow (1)_8
+  - first:
+      213: 3868038271157631488
+    second: croc-with-animation-shadow (1)_9
+  - first:
+      213: 497946937561865188
+    second: croc-with-animation-shadow (1)_10
+  - first:
+      213: -8709508459675920927
+    second: croc-with-animation-shadow (1)_11
+  - first:
+      213: -9160698282844795367
+    second: croc-with-animation-shadow (1)_12
+  - first:
+      213: -3721145553609752611
+    second: croc-with-animation-shadow (1)_13
+  - first:
+      213: 4493498528385100461
+    second: croc-with-animation-shadow (1)_14
+  - first:
+      213: 5157285747241768602
+    second: croc-with-animation-shadow (1)_15
+  - first:
+      213: -2280467937277801912
+    second: croc-with-animation-shadow (1)_16
+  - first:
+      213: -3504148763102275432
+    second: croc-with-animation-shadow (1)_17
+  - first:
+      213: 7173048876877843733
+    second: croc-with-animation-shadow (1)_18
+  - first:
+      213: -5855803111411746633
+    second: croc-with-animation-shadow (1)_19
+  - first:
+      213: 6856396997377081335
+    second: croc-with-animation-shadow (1)_20
+  - first:
+      213: 511979216702628301
+    second: croc-with-animation-shadow (1)_21
+  - first:
+      213: -4684459718254086989
+    second: croc-with-animation-shadow (1)_22
+  - first:
+      213: -4639891467032495800
+    second: croc-with-animation-shadow (1)_23
+  - first:
+      213: -5197324888374530211
+    second: croc-with-animation-shadow (1)_24
+  - first:
+      213: 1388470975381855428
+    second: croc-with-animation-shadow (1)_25
+  - first:
+      213: 2372127586611516477
+    second: croc-with-animation-shadow (1)_26
+  - first:
+      213: -1512760471666820223
+    second: croc-with-animation-shadow (1)_27
+  - first:
+      213: 127761503744861429
+    second: croc-with-animation-shadow (1)_28
+  - first:
+      213: -2993077071032738625
+    second: croc-with-animation-shadow (1)_29
+  - first:
+      213: 6509992264519321770
+    second: croc-with-animation-shadow (1)_30
+  - first:
+      213: 2027237710378447207
+    second: croc-with-animation-shadow (1)_31
+  - first:
+      213: 2181989736744874190
+    second: croc-with-animation-shadow (1)_32
+  - first:
+      213: 3527346420318937765
+    second: croc-with-animation-shadow (1)_33
+  - first:
+      213: 391930366761223415
+    second: croc-with-animation-shadow (1)_34
+  - first:
+      213: 7892127367061039609
+    second: croc-with-animation-shadow (1)_35
+  - first:
+      213: -3746725057328605758
+    second: croc-with-animation-shadow (1)_36
+  - first:
+      213: -1172924294461797284
+    second: croc-with-animation-shadow (1)_37
+  - first:
+      213: 508988436499699562
+    second: croc-with-animation-shadow (1)_38
+  - first:
+      213: -6577168835893885870
+    second: croc-with-animation-shadow (1)_39
+  - first:
+      213: 7410015240502604225
+    second: croc-with-animation-shadow (1)_40
+  - first:
+      213: -2049245871740225455
+    second: croc-with-animation-shadow (1)_41
+  - first:
+      213: -218162640459177856
+    second: croc-with-animation-shadow (1)_42
+  - first:
+      213: -4049480623215132186
+    second: croc-with-animation-shadow (1)_43
+  - first:
+      213: 6753622098814937948
+    second: croc-with-animation-shadow (1)_44
+  - first:
+      213: 2688881024048020178
+    second: croc-with-animation-shadow (1)_45
+  - first:
+      213: 2357759657389258801
+    second: croc-with-animation-shadow (1)_46
+  - first:
+      213: 6585868011222601711
+    second: croc-with-animation-shadow (1)_47
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_0
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1125
+        width: 138
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e416e278dbbdb40800000000000000
+      internalID: 5466170961040592459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_1
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1134
+        width: 125
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34e4e63667b94c80800000000000000
+      internalID: -8337931585464245187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_2
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1128
+        width: 127
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201c899525be49300800000000000000
+      internalID: 258089817589989634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_3
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 1125
+        width: 92
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c63eeb1b4b03a070800000000000000
+      internalID: 8116343370670814918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_4
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1136
+        width: 124
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58482bb96670ae80800000000000000
+      internalID: -8169399527566456738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_5
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 1125
+        width: 104
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178213d10175eb730800000000000000
+      internalID: 4016743644381915249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_6
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 1118
+        width: 119
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf199be0984985e0800000000000000
+      internalID: -1906913179949523011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1111
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ebd3528ad6685e0800000000000000
+      internalID: -1907716823198089601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 916
+        width: 133
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4915b20a002c04950800000000000000
+      internalID: 6431353575828050324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_9
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 943
+        width: 123
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a77f950580ea530800000000000000
+      internalID: 3868038271157631488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 925
+        width: 119
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb5e5af91019e600800000000000000
+      internalID: 497946937561865188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_11
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 940
+        width: 92
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5d1cc633c912780800000000000000
+      internalID: -8709508459675920927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_12
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 945
+        width: 122
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e418c7279aed080800000000000000
+      internalID: -9160698282844795367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 940
+        width: 104
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddff09f95d5db5cc0800000000000000
+      internalID: -3721145553609752611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_14
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 915
+        width: 119
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa622f9a1d1c5e30800000000000000
+      internalID: 4493498528385100461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_15
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 908
+        width: 133
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96d789001c529740800000000000000
+      internalID: 5157285747241768602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_16
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 709
+        width: 138
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a83e45e762a50e0800000000000000
+      internalID: -2280467937277801912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_17
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 728
+        width: 128
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8981a270443ce5fc0800000000000000
+      internalID: -3504148763102275432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_18
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 722
+        width: 121
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d81d6f2f9cb8360800000000000000
+      internalID: 7173048876877843733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_19
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 737
+        width: 92
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8fca578120cbea0800000000000000
+      internalID: -5855803111411746633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_20
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 730
+        width: 127
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff37bb0eb0d62f50800000000000000
+      internalID: 6856396997377081335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_21
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 732
+        width: 104
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc161ff826aea1700800000000000000
+      internalID: 511979216702628301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_22
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 712
+        width: 121
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4b6d0a4b47dfeb0800000000000000
+      internalID: -4684459718254086989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_23
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 702
+        width: 138
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849792f3b4bcb9fb0800000000000000
+      internalID: -4639891467032495800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_24
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 502
+        width: 144
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fa326fc846fd7b0800000000000000
+      internalID: -5197324888374530211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_25
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 515
+        width: 125
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc5394eef6d44310800000000000000
+      internalID: 1388470975381855428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_26
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 519
+        width: 127
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3452e1d87d7be020800000000000000
+      internalID: 2372127586611516477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_27
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 523
+        width: 92
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18bfb00bd58910be0800000000000000
+      internalID: -1512760471666820223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_28
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 517
+        width: 124
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f4aea62966e5c100800000000000000
+      internalID: 127761503744861429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_29
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 525
+        width: 104
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc1abb03447676d0800000000000000
+      internalID: -2993077071032738625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_30
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 509
+        width: 127
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa807312973285a50800000000000000
+      internalID: 6509992264519321770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_31
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 495
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7613262f4f1322c10800000000000000
+      internalID: 2027237710378447207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_32
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 294
+        width: 136
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0f93ada1cf74e10800000000000000
+      internalID: 2181989736744874190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_33
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 305
+        width: 123
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a22bde61e6a3f030800000000000000
+      internalID: 3527346420318937765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_34
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 316
+        width: 121
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f4cd7f879a607500800000000000000
+      internalID: 391930366761223415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_35
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 322
+        width: 92
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9efcba608768d60800000000000000
+      internalID: 7892127367061039609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_36
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 307
+        width: 122
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c59fde4965f00cc0800000000000000
+      internalID: -3746725057328605758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_37
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 318
+        width: 104
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ccd20919fe8bfe0800000000000000
+      internalID: -1172924294461797284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_38
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 306
+        width: 121
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a679858494a401700800000000000000
+      internalID: 508988436499699562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_39
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 289
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25486c48ac339b4a0800000000000000
+      internalID: -6577168835893885870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_40
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 90
+        width: 133
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1736ee999a5d660800000000000000
+      internalID: 7410015240502604225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_41
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 107
+        width: 123
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158fc7dacbd9f83e0800000000000000
+      internalID: -2049245871740225455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_42
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 108
+        width: 121
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0806b200c3ee8fcf0800000000000000
+      internalID: -218162640459177856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_43
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 113
+        width: 92
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e14f6804da5dc7c0800000000000000
+      internalID: -4049480623215132186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_44
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 109
+        width: 122
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ba713448fa9bd50800000000000000
+      internalID: 6753622098814937948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_45
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 110
+        width: 104
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dabba98b03d05520800000000000000
+      internalID: 2688881024048020178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_46
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 98
+        width: 121
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138fe6c9ae178b020800000000000000
+      internalID: 2357759657389258801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: croc-with-animation-shadow (1)_47
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 82
+        width: 133
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef08821014b56b50800000000000000
+      internalID: 6585868011222601711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

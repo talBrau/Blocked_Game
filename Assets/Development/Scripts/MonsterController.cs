@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Development.Scripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,7 @@ public class MonsterController : MonoBehaviour
 
     #region Fields
 
+    private IsometricCharecterRenderer _isometricRenderer;
     private PlayersButtons _playersButtons;
     public MonsterManager monsterManager;
     private bool _isTouchingWall;
@@ -30,6 +32,7 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
+        _isometricRenderer = GetComponentInChildren<IsometricCharecterRenderer>();
         _playersButtons = GameObject.Find("Players Manager").GetComponent<PlayersButtons>();
         monsterManager = FindObjectOfType<MonsterManager>();
         int targetPlayerOrBase = Random.Range(0, 2);
@@ -46,8 +49,10 @@ public class MonsterController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position,
                 _target.position, Time.deltaTime * monsterSpeed);
+            var direction = Vector2.ClampMagnitude((_target.position-transform.position), 1);
+            _isometricRenderer.SetDirection(direction);
         }
-
+        
         if (_isTouchingWall)
         {
             UpdateTileTouch();
