@@ -1,3 +1,4 @@
+using Development.Scripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float moveSpeed = 4;
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
+     [SerializeField] private IsometricCharecterRenderer _isoRenderer;
 
     #endregion
 
@@ -76,6 +78,8 @@ public class PlayerManager : MonoBehaviour
         groundTileMap = groundObject.GetComponent<Tilemap>();
         _rb = GetComponent<Rigidbody2D>();
         _monsterManager = GameObject.Find("Monster Manager").GetComponent<MonsterManager>();
+        _isoRenderer = GetComponentInChildren<IsometricCharecterRenderer>();
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -130,6 +134,9 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.velocity = _direction * moveSpeed;
+        var inputVector = Vector2.ClampMagnitude(_direction, 1);
+        _isoRenderer.SetDirection(inputVector);
+
     }
 
     #endregion
@@ -147,6 +154,9 @@ public class PlayerManager : MonoBehaviour
         _direction = input;
         if (_direction != _lastDir && _direction != Vector3.zero)
             _lastDir = _direction;
+       
+
+        
     }
 
     public void BuyWallTile()
