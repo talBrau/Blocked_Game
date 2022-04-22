@@ -33,6 +33,7 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         _isometricRenderer = GetComponentInChildren<IsometricCharecterRenderer>();
+        _isometricRenderer.isMonster = true;
         _playersButtons = GameObject.Find("Players Manager").GetComponent<PlayersButtons>();
         monsterManager = FindObjectOfType<MonsterManager>();
         int targetPlayerOrBase = Random.Range(0, 2);

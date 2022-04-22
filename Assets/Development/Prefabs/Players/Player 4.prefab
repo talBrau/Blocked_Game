@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31281f67daa64cd192b9c34ace489bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMonster: 0
   animator: {fileID: 1794686724733286014}
 --- !u!1 &7350466929344015756
 GameObject:
@@ -127,8 +128,8 @@ GameObject:
   - component: {fileID: 7350466929344015754}
   - component: {fileID: 7350466929344015755}
   - component: {fileID: 7350466929344015753}
-  - component: {fileID: 7350466929344015751}
   - component: {fileID: 5881007355681915053}
+  - component: {fileID: 6229411717515904428}
   m_Layer: 0
   m_Name: Player 4
   m_TagString: Player
@@ -223,22 +224,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &7350466929344015751
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7350466929344015756}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5000002}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
 --- !u!114 &5881007355681915053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,3 +240,19 @@ MonoBehaviour:
   wallTile: {fileID: 5150466889257248711, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   tntTile: {fileID: 7932724438151317373, guid: 037f70959ac8cc942900fb8c85a1f793, type: 3}
   _isoRenderer: {fileID: 0}
+--- !u!70 &6229411717515904428
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350466929344015756}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.21737099}
+  m_Size: {x: 0.44017443, y: 0.6290557}
+  m_Direction: 0
