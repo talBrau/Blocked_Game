@@ -9,6 +9,7 @@ namespace Development.Scripts
         public bool isMonster = false;
         public static readonly string[] staticDirections = { "Static N", "Static NW", "Static W", "Static SW", "Static S", "Static SE", "Static E", "Static NE" };
         public static readonly string[] runDirections = {"Run N", "Run NW", "Run W", "Run SW", "Run S", "Run SE", "Run E", "Run NE"};
+        // public static readonly string[] holdDirections = {"Hold N", "Hold NW", "Hold W", "Hold SW", "Hold S", "Hold SE", "Hold E", "Hold NE"};
 
         [SerializeField] private Animator animator;
         int lastDirection;

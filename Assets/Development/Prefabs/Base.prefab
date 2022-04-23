@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8918468411528286340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -2135585597343286014, guid: eed45a33cd08446c8b88325cf82fc52f, type: 3}
-  m_Color: {r: 0.5764706, g: 0, b: 0.27843243, a: 1}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 74737d5fd84fe417b987d6fdd7b101b0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,13 +101,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.44013253, y: -0.24999976}
-  - {x: 0.43819556, y: -0.025842667}
+  - {x: 0.86593634, y: -0.68570566}
+  - {x: 0.8540968, y: -0.32291493}
   - {x: -0.0022897683, y: 0.22681355}
-  - {x: -0.43620294, y: 0.017096758}
-  - {x: -0.43655136, y: -0.2552297}
-  - {x: 0.009765101, y: -0.50198746}
-  - {x: 0.44140625, y: -0.25}
+  - {x: -0.9808354, y: -0.3096828}
+  - {x: -0.99108624, y: -0.68103313}
+  - {x: -0.01994212, y: -1.2248632}
+  - {x: 0.8771123, y: -0.70551074}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -125,6 +125,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 5
+  _sprites:
+  - {fileID: 21300000, guid: 74737d5fd84fe417b987d6fdd7b101b0, type: 3}
+  - {fileID: 21300000, guid: 6995e17f219b948a0a02097cff9067de, type: 3}
+  - {fileID: 21300000, guid: c8517dc37120e48d8890ffd69b580942, type: 3}
+  - {fileID: 21300000, guid: 4acdfabe514264a79b41845cb88aa64c, type: 3}
+  - {fileID: 21300000, guid: 78a74e3d45fc74e3ab271fe1dd528b1a, type: 3}
 --- !u!82 &1685340050221300964
 AudioSource:
   m_ObjectHideFlags: 0
