@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: ffe42f652175b4e8e821d9c41c59a04a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7893419757510671325
+    second: BUTTONS new_0
+  - first:
+      213: 6222072613771202537
+    second: BUTTONS new_1
+  - first:
+      213: 4081578214848629765
+    second: BUTTONS new_2
+  - first:
+      213: -6981569648172379529
+    second: BUTTONS new_3
+  - first:
+      213: -8668459515655532191
+    second: BUTTONS new_4
+  - first:
+      213: -9136406784739540804
+    second: BUTTONS new_5
+  - first:
+      213: 5405578545612092569
+    second: BUTTONS new_6
+  - first:
+      213: 3289111842368578438
+    second: BUTTONS new_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,7 +65,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,10 +89,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +113,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BUTTONS new_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 118
+        width: 96
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb3975c27f0b8d60800000000000000
+      internalID: 7893419757510671325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_1
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 118
+        width: 96
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9efc486831e395650800000000000000
+      internalID: 6222072613771202537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_2
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 118
+        width: 96
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c8603e2cda4a830800000000000000
+      internalID: 4081578214848629765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_3
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 118
+        width: 96
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772590a156b7c1f90800000000000000
+      internalID: -6981569648172379529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 29
+        width: 96
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1615f7b7ff173b780800000000000000
+      internalID: -8668459515655532191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 29
+        width: 96
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb08120af66f43180800000000000000
+      internalID: -9136406784739540804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_6
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 29
+        width: 96
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9947ea81c09740b40800000000000000
+      internalID: 5405578545612092569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUTTONS new_7
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 29
+        width: 96
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683e8ee4bc545ad20800000000000000
+      internalID: 3289111842368578438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
