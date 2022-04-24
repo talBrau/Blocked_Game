@@ -90524,6 +90524,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5150466889257248708, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -269052843072415482, guid: 36548adcdeceb4df2a8f344318ad86b0, type: 3}
     - target: {fileID: 5150466889257248711, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
       propertyPath: m_Name
       value: Wall Tile

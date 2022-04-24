@@ -84,6 +84,16 @@ public class MonsterController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (_isTouchingWall &&
+            (other.CompareTag("Wall") || other.CompareTag("Exploding Tile"))) //tile moved while eating it
+        {
+            _isTouchingWall = false;
+            _curTile = null;
+        }
+    }
+
     #endregion
 
     #region Methods

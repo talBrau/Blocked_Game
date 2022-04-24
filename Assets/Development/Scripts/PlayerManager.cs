@@ -180,6 +180,7 @@ public class PlayerManager : MonoBehaviour
     {
         _rb.velocity = _direction * moveSpeed;
         var inputVector = Vector2.ClampMagnitude(_direction, 1);
+        _isoRenderer.isHolding = _currentHoldTile != null;
         _isoRenderer.SetDirection(inputVector);
     }
 
