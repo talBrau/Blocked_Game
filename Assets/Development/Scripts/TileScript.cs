@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -53,8 +54,7 @@ public class TileScript : MonoBehaviour
     public void placeMovingTile()
     {
         _moving = false;
-        
-        GetComponent<EdgeCollider2D>().isTrigger = false;
+        StartCoroutine(waitTrigger());
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
@@ -97,5 +97,12 @@ public class TileScript : MonoBehaviour
             }
         }
 
+    }
+
+    private IEnumerator waitTrigger()
+    {
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<EdgeCollider2D>().isTrigger = false;
+        
     }
 }

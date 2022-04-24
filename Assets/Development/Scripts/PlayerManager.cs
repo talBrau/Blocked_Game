@@ -1,7 +1,10 @@
 using System;
+using System.Numerics;
 using Development.Scripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -294,6 +297,7 @@ public class PlayerManager : MonoBehaviour
             }
 
             _toturial.HideKey(Toturial.Keys.LeftKey);
+            _rb.AddForce(-_lastDir*2000);
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _playerAudioManager.playMoveTile();
             _currentHoldTile = null;
