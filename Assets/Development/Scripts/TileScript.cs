@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 using System.Collections;
+=======
+using System.Collections.Generic;
+>>>>>>> Stashed changes
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +14,7 @@ public class TileScript : MonoBehaviour
     [SerializeField] private float onMoveTransparency = 0.5f;
 
     [SerializeField] private float tileHealthDecrease = 5f;
+    [SerializeField] private List<Sprite> tilesSprites;
 
     #endregion
     
@@ -46,9 +51,13 @@ public class TileScript : MonoBehaviour
     public void UpdateTileHealth(float value)
     {
         _tileHealth -= value * tileHealthDecrease;
-        var colorChange = (value * tileHealthDecrease ) / 6; // we dont want the tile to turn completely black
-        var curColor = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color(curColor.r-colorChange,curColor.g-colorChange,curColor.b-colorChange);
+        // var colorChange = (value * tileHealthDecrease ) / 6; // we dont want the tile to turn completely black
+        // var curColor = GetComponent<SpriteRenderer>().color;
+        // GetComponent<SpriteRenderer>().color = new Color(curColor.r-colorChange,curColor.g-colorChange,curColor.b-colorChange);
+        if (_tileHealth < 2/3 && _tileHealth > 1/3)
+            GetComponent<SpriteRenderer>().sprite = tilesSprites[0];
+        if (_tileHealth < 1/3)
+            GetComponent<SpriteRenderer>().sprite = tilesSprites[1];
     }
 
     public void placeMovingTile()
