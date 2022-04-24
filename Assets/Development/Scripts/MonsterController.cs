@@ -55,7 +55,6 @@ public class MonsterController : MonoBehaviour
 
         if (_isTouchingWall)
         {
-            print("tpuch");
             UpdateTileTouch();
         }
     }
@@ -66,8 +65,7 @@ public class MonsterController : MonoBehaviour
         if (!_isTouchingWall && (obj.CompareTag("Wall") || obj.CompareTag("Exploding Tile")))
         {
             //change color of tile to indicate its being eaten
-            obj.GetComponent<SpriteRenderer>().color = new Color(0.8f,0.8f,0.8f,1);
-            print("true");
+            obj.GetComponent<SpriteRenderer>().color = new Color(0.9f,0.9f,0.9f,1);
             _isTouchingWall = true;
             _curTile = obj;
         }
@@ -110,7 +108,6 @@ public class MonsterController : MonoBehaviour
             _isTouchingWall = false;
             return;
         }
-        print("yum");
         _curTile.GetComponent<TileScript>().UpdateTileHealth(value);
         if (_curTile.GetComponent<TileScript>().TileHealth <= 0)
         {

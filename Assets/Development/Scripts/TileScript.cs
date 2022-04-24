@@ -51,10 +51,9 @@ public class TileScript : MonoBehaviour
         // var colorChange = (value * tileHealthDecrease ) / 6; // we dont want the tile to turn completely black
         // var curColor = GetComponent<SpriteRenderer>().color;
         // GetComponent<SpriteRenderer>().color = new Color(curColor.r-colorChange,curColor.g-colorChange,curColor.b-colorChange);
-        print(_tileHealth);
-        if (_tileHealth < 2/3 && _tileHealth > 1/3)
+        if (_tileHealth < 0.66f && _tileHealth > 0.33f)
             GetComponent<SpriteRenderer>().sprite = tilesSprites[0];
-        if (_tileHealth < 1/3)
+        if (_tileHealth < 0.33f)
             GetComponent<SpriteRenderer>().sprite = tilesSprites[1];
     }
 
