@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -12,9 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int explodingTilePrice;
     [SerializeField] private GameObject monsterManager;
     [SerializeField] private PlayersSpawnManager playersSpawnManager;
-    [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject gameWonUI;
+     private GameObject gameOverUI;
+     private GameObject gameWonUI;
+     private GameObject gameWonNewHighScoreUI;
     [SerializeField] private TextMeshProUGUI gameWonScore;
+    [SerializeField] private TextMeshProUGUI gameWonHighScore;
+    [SerializeField] private TextMeshProUGUI PrevHighScore;
     [SerializeField] private GameObject newHighScore;
 
     #endregion
@@ -62,9 +66,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        gameOverUI = GameObject.Find("GameOver Screen");
+        gameWonUI = GameObject.Find("GameWon Screen");
+        gameWonNewHighScoreUI = GameObject.Find("Game Won High score");
         GameOverFlag = false;
+        if(!gameOverUI)
+            print("deadGuiOnstart");
         gameOverUI.SetActive(false);
         gameWonUI.SetActive(false);
+        gameWonNewHighScoreUI.SetActive(false);
+        onBoarding = true;
         Score = 0;
         _readyCounter = 0;
     }
@@ -82,9 +93,11 @@ public class GameManager : MonoBehaviour
     #region Methods
 
     private void loadScene()
-    { 
-        SceneManager.LoadScene("Prototype");
+    {
+        GameObject.Find("Canvas").SetActive(false);
+        SceneManager.LoadScene("StartScene");
     }
+    
     private void showGameOverScreen()
     {
         gameOverUI.SetActive(true);
@@ -93,12 +106,23 @@ public class GameManager : MonoBehaviour
 
     private void showGameWonScreen()
     {
-        gameWonUI.SetActive(true);
         gameWonScore.text = Math.Round(Score).ToString();
-        if (Score >= PlayerPrefs.GetInt("highscore", 0))
+        var prevHighScore = PlayerPrefs.GetInt("highscore", 0);
+        if (Score >=prevHighScore)
         {
             PlayerPrefs.SetInt("highscore", (int) math.round(Score));
-            newHighScore.SetActive(true);
+            PrevHighScore.text = prevHighScore.ToString();
+            gameWonHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
+            gameWonNewHighScoreUI.SetActive(true);
+        }
+        else
+        {
+            gameWonHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
+            if (!gameWonUI)
+            {
+                print("deadGui");
+            }
+            gameWonUI.SetActive(true);
         }
         GameOverFlag = true;
     }

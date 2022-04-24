@@ -364,6 +364,45 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""StartScreen"",
+            ""id"": ""3454fff1-f944-4ba8-8996-e138ade01820"",
+            ""actions"": [
+                {
+                    ""name"": ""LoadGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""f360b037-c76e-493a-9736-1a56fb5c8356"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2bfd7258-de76-4831-9d92-268ca496b3ca"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""068481c4-ba33-48c1-aace-e3d30bc8b729"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -379,6 +418,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_SetReadyEndGame = m_Player.FindAction("SetReadyEndGame", throwIfNotFound: true);
         m_Player_ReviveFriend = m_Player.FindAction("ReviveFriend", throwIfNotFound: true);
         m_Player_StartNewGame = m_Player.FindAction("StartNewGame", throwIfNotFound: true);
+        // StartScreen
+        m_StartScreen = asset.FindActionMap("StartScreen", throwIfNotFound: true);
+        m_StartScreen_LoadGame = m_StartScreen.FindAction("LoadGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -531,6 +573,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // StartScreen
+    private readonly InputActionMap m_StartScreen;
+    private IStartScreenActions m_StartScreenActionsCallbackInterface;
+    private readonly InputAction m_StartScreen_LoadGame;
+    public struct StartScreenActions
+    {
+        private @PlayerControls m_Wrapper;
+        public StartScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LoadGame => m_Wrapper.m_StartScreen_LoadGame;
+        public InputActionMap Get() { return m_Wrapper.m_StartScreen; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StartScreenActions set) { return set.Get(); }
+        public void SetCallbacks(IStartScreenActions instance)
+        {
+            if (m_Wrapper.m_StartScreenActionsCallbackInterface != null)
+            {
+                @LoadGame.started -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGame;
+                @LoadGame.performed -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGame;
+                @LoadGame.canceled -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGame;
+            }
+            m_Wrapper.m_StartScreenActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @LoadGame.started += instance.OnLoadGame;
+                @LoadGame.performed += instance.OnLoadGame;
+                @LoadGame.canceled += instance.OnLoadGame;
+            }
+        }
+    }
+    public StartScreenActions @StartScreen => new StartScreenActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -542,5 +617,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnSetReadyEndGame(InputAction.CallbackContext context);
         void OnReviveFriend(InputAction.CallbackContext context);
         void OnStartNewGame(InputAction.CallbackContext context);
+    }
+    public interface IStartScreenActions
+    {
+        void OnLoadGame(InputAction.CallbackContext context);
     }
 }

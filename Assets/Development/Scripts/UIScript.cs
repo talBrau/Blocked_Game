@@ -8,10 +8,11 @@ public class UIScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private TextMeshProUGUI Highscore;
-
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         Highscore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
+        
     }
 
     private void Update()

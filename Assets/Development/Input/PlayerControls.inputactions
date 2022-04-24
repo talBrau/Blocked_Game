@@ -342,6 +342,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "StartScreen",
+            "id": "3454fff1-f944-4ba8-8996-e138ade01820",
+            "actions": [
+                {
+                    "name": "LoadGame",
+                    "type": "Button",
+                    "id": "f360b037-c76e-493a-9736-1a56fb5c8356",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2bfd7258-de76-4831-9d92-268ca496b3ca",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "068481c4-ba33-48c1-aace-e3d30bc8b729",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
