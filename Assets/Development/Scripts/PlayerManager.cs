@@ -71,6 +71,7 @@ public class PlayerManager : MonoBehaviour
     private bool _buttonPressed;
     private PlayerAudioManager _playerAudioManager;
     public Sprite InitialSprite;
+    private Toturial.Keys _readyButton = Toturial.Keys.empty;
 
     #endregion
 
@@ -111,6 +112,8 @@ public class PlayerManager : MonoBehaviour
         {
             _canBuy = true;
             _toturial.ShowKey(Toturial.Keys.LbRbKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.HideKey(_readyButton);
         }
     }
 
@@ -122,6 +125,8 @@ public class PlayerManager : MonoBehaviour
             other.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             _nearTile = other.gameObject;
             _toturial.ShowKey(Toturial.Keys.LeftKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.HideKey(_readyButton);
         }
     }
 
@@ -132,12 +137,16 @@ public class PlayerManager : MonoBehaviour
             _nearTile.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             _nearTile = null;
             _toturial.HideKey(Toturial.Keys.LeftKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.ShowKey(_readyButton);
         }
 
         if (other.gameObject.CompareTag("Base"))
         {
             _canBuy = false;
             _toturial.HideKey(Toturial.Keys.LbRbKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.ShowKey(_readyButton);
         }
     }
 
@@ -146,12 +155,16 @@ public class PlayerManager : MonoBehaviour
         if (col.gameObject.CompareTag("Button"))
         {
             _toturial.ShowKey(Toturial.Keys.UpKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.HideKey(_readyButton);
         }
 
         //can revive player
         if (col.gameObject.CompareTag("Player") && isAlive)
         {
             _toturial.ShowKey(Toturial.Keys.RightKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.HideKey(_readyButton);
         }
     }
 
@@ -174,17 +187,24 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Button"))
         {
             _toturial.HideKey(Toturial.Keys.UpKey);
+            if (_readyButton != Toturial.Keys.empty)
+                _toturial.ShowKey(_readyButton);
             if (_playersButtons.playerInReadyEnd(gameObject))
             {
                 _playersButtons.DecreaseReadyEnd(gameObject);
                 _toturial.HideKey(Toturial.Keys.ReadyBail);
+                _readyButton = Toturial.Keys.empty;
             }
         }
     }
     private void Update()
     {
         if (!GameManager.onBoarding)
+        {
             _toturial.HideKey(Toturial.Keys.ReadyGame);  
+            _readyButton = Toturial.Keys.empty;
+        }
+
     }
 
     private void FixedUpdate()
@@ -284,6 +304,7 @@ public class PlayerManager : MonoBehaviour
             _nearTile = null;
             _currentHoldTile.GetComponent<TileScript>().setMovingTile(gameObject);
             _toturial.ShowKey(Toturial.Keys.LeftKey);
+            _toturial.leftKey.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.4f);
             _playerAudioManager.playMoveTile();
         }
         else
@@ -298,6 +319,7 @@ public class PlayerManager : MonoBehaviour
 
             _toturial.HideKey(Toturial.Keys.LeftKey);
             _rb.AddForce(-_lastDir*2000);
+            _toturial.leftKey.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1f);
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _playerAudioManager.playMoveTile();
             _currentHoldTile = null;
@@ -306,7 +328,10 @@ public class PlayerManager : MonoBehaviour
 
     public void SetReady()
     {
+        if (_toturial.ReadyGame.activeSelf)
+            return;
         _toturial.ShowKey(Toturial.Keys.ReadyGame);
+        _readyButton = Toturial.Keys.ReadyGame;
         sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
 
@@ -335,6 +360,7 @@ public class PlayerManager : MonoBehaviour
         {
             _playersButtons.IncreaseReadyEnd(gameObject);
             _toturial.ShowKey(Toturial.Keys.ReadyBail);
+            _readyButton = Toturial.Keys.ReadyBail;
             _buttonPressed = true;
         }
     }

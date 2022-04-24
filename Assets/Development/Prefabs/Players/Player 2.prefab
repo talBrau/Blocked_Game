@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -8255093438836374119, guid: d9e00bb1b605f4f499863005ac99b265, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMonster: 0
+  isHolding: 0
   animator: {fileID: 5804767510249090758}
 --- !u!1 &6058518914713735169
 GameObject:

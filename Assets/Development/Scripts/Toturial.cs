@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Toturial : MonoBehaviour
 {
-    [SerializeField] private GameObject leftKey;
+    public GameObject leftKey;
     [SerializeField] private GameObject rightKey;
     [SerializeField] private GameObject upKey;
     [SerializeField] private GameObject lbRbKey;
     [SerializeField] private GameObject moveKey;
     [SerializeField] private GameObject AskHelp;
-    [SerializeField] private GameObject ReadyBail;
-    [SerializeField] private GameObject ReadyGame;
+    public GameObject ReadyBail;
+    public GameObject ReadyGame;
 
     public enum Keys
     {
@@ -22,7 +22,8 @@ public class Toturial : MonoBehaviour
         MoveKey,
         AskHelp,
         ReadyBail,
-        ReadyGame
+        ReadyGame,
+        empty
     }
 
     public void ShowKey(Keys key)
