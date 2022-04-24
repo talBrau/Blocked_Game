@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -19,12 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameWonScore;
     [SerializeField] private TextMeshProUGUI gameWonHighScore;
     [SerializeField] private TextMeshProUGUI PrevHighScore;
-    [SerializeField] private GameObject newHighScore;
-
+    [SerializeField] private TextMeshProUGUI newHighScore;
     #endregion
 
     #region Fields
-
+    public static float prevHighScore;
     public static float Score;
     public static int WallTilePrice;
     public static int ExplodingTilePrice;
@@ -107,12 +105,12 @@ public class GameManager : MonoBehaviour
     private void showGameWonScreen()
     {
         gameWonScore.text = Math.Round(Score).ToString();
-        var prevHighScore = PlayerPrefs.GetInt("highscore", 0);
         if (Score >=prevHighScore)
         {
             PlayerPrefs.SetInt("highscore", (int) math.round(Score));
             PrevHighScore.text = prevHighScore.ToString();
-            gameWonHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
+            newHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
+            // gameWonHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
             gameWonNewHighScoreUI.SetActive(true);
         }
         else
