@@ -370,9 +370,36 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""id"": ""3454fff1-f944-4ba8-8996-e138ade01820"",
             ""actions"": [
                 {
+                    ""name"": ""StopAnim"",
+                    ""type"": ""Button"",
+                    ""id"": ""2dea2851-4afb-4796-a3d9-caa58177d6b9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeSlide"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe3ef833-9b59-43e1-9ca5-dcb71e110f6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""LoadGame"",
                     ""type"": ""Button"",
                     ""id"": ""f360b037-c76e-493a-9736-1a56fb5c8356"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LoadGameSkip"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d457130-a955-4791-a1c5-7531c5b841b8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -382,8 +409,30 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""2bfd7258-de76-4831-9d92-268ca496b3ca"",
+                    ""id"": ""a6212d62-0036-498c-a428-3582e04663ee"",
                     ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopAnim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfad21b9-6e2a-4a99-bc48-281c13f2c3ba"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSlide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bfd7258-de76-4831-9d92-268ca496b3ca"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -399,6 +448,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LoadGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02b6778c-42db-4fb2-9706-5af17aed38ff"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadGameSkip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -420,7 +480,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_StartNewGame = m_Player.FindAction("StartNewGame", throwIfNotFound: true);
         // StartScreen
         m_StartScreen = asset.FindActionMap("StartScreen", throwIfNotFound: true);
+        m_StartScreen_StopAnim = m_StartScreen.FindAction("StopAnim", throwIfNotFound: true);
+        m_StartScreen_ChangeSlide = m_StartScreen.FindAction("ChangeSlide", throwIfNotFound: true);
         m_StartScreen_LoadGame = m_StartScreen.FindAction("LoadGame", throwIfNotFound: true);
+        m_StartScreen_LoadGameSkip = m_StartScreen.FindAction("LoadGameSkip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -577,12 +640,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     // StartScreen
     private readonly InputActionMap m_StartScreen;
     private IStartScreenActions m_StartScreenActionsCallbackInterface;
+    private readonly InputAction m_StartScreen_StopAnim;
+    private readonly InputAction m_StartScreen_ChangeSlide;
     private readonly InputAction m_StartScreen_LoadGame;
+    private readonly InputAction m_StartScreen_LoadGameSkip;
     public struct StartScreenActions
     {
         private @PlayerControls m_Wrapper;
         public StartScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StopAnim => m_Wrapper.m_StartScreen_StopAnim;
+        public InputAction @ChangeSlide => m_Wrapper.m_StartScreen_ChangeSlide;
         public InputAction @LoadGame => m_Wrapper.m_StartScreen_LoadGame;
+        public InputAction @LoadGameSkip => m_Wrapper.m_StartScreen_LoadGameSkip;
         public InputActionMap Get() { return m_Wrapper.m_StartScreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -592,16 +661,34 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_StartScreenActionsCallbackInterface != null)
             {
+                @StopAnim.started -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnStopAnim;
+                @StopAnim.performed -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnStopAnim;
+                @StopAnim.canceled -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnStopAnim;
+                @ChangeSlide.started -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnChangeSlide;
+                @ChangeSlide.performed -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnChangeSlide;
+                @ChangeSlide.canceled -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnChangeSlide;
                 @LoadGame.started -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGame;
                 @LoadGame.performed -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGame;
                 @LoadGame.canceled -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGame;
+                @LoadGameSkip.started -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGameSkip;
+                @LoadGameSkip.performed -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGameSkip;
+                @LoadGameSkip.canceled -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnLoadGameSkip;
             }
             m_Wrapper.m_StartScreenActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @StopAnim.started += instance.OnStopAnim;
+                @StopAnim.performed += instance.OnStopAnim;
+                @StopAnim.canceled += instance.OnStopAnim;
+                @ChangeSlide.started += instance.OnChangeSlide;
+                @ChangeSlide.performed += instance.OnChangeSlide;
+                @ChangeSlide.canceled += instance.OnChangeSlide;
                 @LoadGame.started += instance.OnLoadGame;
                 @LoadGame.performed += instance.OnLoadGame;
                 @LoadGame.canceled += instance.OnLoadGame;
+                @LoadGameSkip.started += instance.OnLoadGameSkip;
+                @LoadGameSkip.performed += instance.OnLoadGameSkip;
+                @LoadGameSkip.canceled += instance.OnLoadGameSkip;
             }
         }
     }
@@ -620,6 +707,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public interface IStartScreenActions
     {
+        void OnStopAnim(InputAction.CallbackContext context);
+        void OnChangeSlide(InputAction.CallbackContext context);
         void OnLoadGame(InputAction.CallbackContext context);
+        void OnLoadGameSkip(InputAction.CallbackContext context);
     }
 }
