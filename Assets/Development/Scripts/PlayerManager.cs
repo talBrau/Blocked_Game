@@ -318,11 +318,8 @@ public class PlayerManager : MonoBehaviour
             }
 
             _toturial.HideKey(Toturial.Keys.LeftKey);
-<<<<<<< Updated upstream
             _rb.AddForce(-_lastDir*2000);
-=======
             _toturial.leftKey.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1f);
->>>>>>> Stashed changes
             _currentHoldTile.GetComponent<TileScript>().placeMovingTile();
             _playerAudioManager.playMoveTile();
             _currentHoldTile = null;
