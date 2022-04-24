@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     #region Inspector
 
+    [SerializeField] private float scoreRate = 2;
+    [SerializeField] private float scoreWhenKilling = 10;
     [SerializeField] private int wallTilePrice;
     [SerializeField] private int explodingTilePrice;
     [SerializeField] private GameObject monsterManager;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Fields
+
+    public static float scoreWhenKillingMonster;
     public static float prevHighScore;
     public static float Score;
     public static int WallTilePrice;
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        scoreWhenKillingMonster = scoreWhenKilling;
         WallTilePrice = wallTilePrice;
         ExplodingTilePrice = explodingTilePrice;
     }
@@ -85,7 +90,7 @@ public class GameManager : MonoBehaviour
         {
             if (startButton.activeSelf)
                 startButton.SetActive(false);
-            Score += Time.deltaTime;
+            Score += Time.deltaTime * scoreRate;
         }
     }
 

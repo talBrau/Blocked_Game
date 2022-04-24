@@ -16,6 +16,7 @@ public class ExplodeScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Monster"))
             {
+                GameManager.Score += GameManager.scoreWhenKillingMonster;
                 Destroy(col.gameObject);
             }
 
