@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject wallTile;
     [SerializeField] private GameObject tntTile;
     [SerializeField] private IsometricCharecterRenderer _isoRenderer;
+    [SerializeField] private Sprite deadSprite;
+    public GameObject PlayerRenderer;
 
     #endregion
 
@@ -65,6 +67,7 @@ public class PlayerManager : MonoBehaviour
     private PlayersButtons _playersButtons;
     private bool _buttonPressed;
     private PlayerAudioManager _playerAudioManager;
+    public Sprite InitialSprite;
 
     #endregion
 
@@ -96,6 +99,7 @@ public class PlayerManager : MonoBehaviour
         _toturial = GetComponent<Toturial>();
         _toturial.ShowKey(Toturial.Keys.MoveKey);
         _playerAudioManager = GetComponent<PlayerAudioManager>();
+        InitialSprite = PlayerRenderer.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -153,7 +157,6 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && isAlive)
         {
             _nearFriend = other.gameObject;
-            _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
     }
 
@@ -161,7 +164,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && isAlive)
         {
-            _nearFriend.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
             _nearFriend = null;
             _toturial.HideKey(Toturial.Keys.RightKey);
         }
@@ -172,8 +174,14 @@ public class PlayerManager : MonoBehaviour
             if (_playersButtons.playerInReadyEnd(gameObject))
             {
                 _playersButtons.DecreaseReadyEnd(gameObject);
+                _toturial.HideKey(Toturial.Keys.ReadyBail);
             }
         }
+    }
+    private void Update()
+    {
+        if (!GameManager.onBoarding)
+            _toturial.HideKey(Toturial.Keys.ReadyGame);  
     }
 
     private void FixedUpdate()
@@ -294,6 +302,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SetReady()
     {
+        _toturial.ShowKey(Toturial.Keys.ReadyGame);
         sceneManager.GetComponent<GameManager>().increaseReadyCounter();
     }
 
@@ -321,6 +330,7 @@ public class PlayerManager : MonoBehaviour
         if (isStandingOnButton)
         {
             _playersButtons.IncreaseReadyEnd(gameObject);
+            _toturial.ShowKey(Toturial.Keys.ReadyBail);
             _buttonPressed = true;
         }
     }
@@ -333,8 +343,12 @@ public class PlayerManager : MonoBehaviour
             var friendScript = _nearFriend.gameObject.GetComponent<PlayerManager>();
             friendScript.IsAlive = true;
             friendScript.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
-            friendScript.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            friendScript.gameObject.GetComponent<Toturial>().HideKey(Toturial.Keys.AskHelp);
+            friendScript.PlayerRenderer.GetComponent<SpriteRenderer>().sprite = friendScript.InitialSprite;
+            friendScript.PlayerRenderer.GetComponent<Animator>().enabled = true;
             _playerAudioManager.playReviveFriend();
+            _nearFriend = null;
+            _toturial.HideKey(Toturial.Keys.RightKey);
         }
     }
 
@@ -343,7 +357,9 @@ public class PlayerManager : MonoBehaviour
         _monsterManager.RemovePlayer(transform.parent.gameObject);
         isAlive = false;
         GetComponent<CapsuleCollider2D>().isTrigger = true;
-        GetComponentInChildren<SpriteRenderer>().color = Color.gray;
+        PlayerRenderer.GetComponent<Animator>().enabled = false;
+        PlayerRenderer.GetComponent<SpriteRenderer>().sprite = deadSprite;
+        _toturial.ShowKey(Toturial.Keys.AskHelp);
         if (_currentHoldTile)
         {
             Destroy(_currentHoldTile);

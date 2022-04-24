@@ -9,6 +9,9 @@ public class Toturial : MonoBehaviour
     [SerializeField] private GameObject upKey;
     [SerializeField] private GameObject lbRbKey;
     [SerializeField] private GameObject moveKey;
+    [SerializeField] private GameObject AskHelp;
+    [SerializeField] private GameObject ReadyBail;
+    [SerializeField] private GameObject ReadyGame;
 
     public enum Keys
     {
@@ -16,7 +19,10 @@ public class Toturial : MonoBehaviour
         RightKey,
         UpKey,
         LbRbKey,
-        MoveKey
+        MoveKey,
+        AskHelp,
+        ReadyBail,
+        ReadyGame
     }
 
     public void ShowKey(Keys key)
@@ -31,6 +37,12 @@ public class Toturial : MonoBehaviour
             lbRbKey.SetActive(true);
         if (key==Keys.MoveKey)
             moveKey.SetActive(true);
+        if (key==Keys.AskHelp)
+            AskHelp.SetActive(true);
+        if (key==Keys.ReadyBail)
+            ReadyBail.SetActive(true);
+        if (key==Keys.ReadyGame)
+            ReadyGame.SetActive(true);
     }
     public void HideKey(Keys key)
     {
@@ -42,9 +54,14 @@ public class Toturial : MonoBehaviour
             upKey.SetActive(false);
         if (key == Keys.LbRbKey)
             lbRbKey.SetActive(false);
-
         if (key==Keys.MoveKey)
             moveKey.SetActive(false);
+        if (key==Keys.AskHelp)
+            AskHelp.SetActive(false);
+        if (key==Keys.ReadyBail)
+            ReadyBail.SetActive(false);
+        if (key==Keys.ReadyGame)
+            ReadyGame.SetActive(false);
     }
     
 }

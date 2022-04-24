@@ -246,6 +246,9 @@ MonoBehaviour:
   wallTile: {fileID: 5150466889257248711, guid: 4030065eee89ec44fa88109d8f639573, type: 3}
   tntTile: {fileID: 7932724438151317373, guid: 037f70959ac8cc942900fb8c85a1f793, type: 3}
   _isoRenderer: {fileID: 0}
+  deadSprite: {fileID: -1407012118100968491, guid: bd9f59065a0341243a19aa082bd481a0, type: 3}
+  PlayerRenderer: {fileID: 1338812836840688020}
+  InitialSprite: {fileID: 0}
 --- !u!70 &6229411717515904428
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -279,6 +282,9 @@ MonoBehaviour:
   upKey: {fileID: 7240432878668107978}
   lbRbKey: {fileID: 2410134525752592186}
   moveKey: {fileID: 6680809628908765303}
+  AskHelp: {fileID: 1484542230887119608}
+  ReadyBail: {fileID: 5169615428456174407}
+  ReadyGame: {fileID: 5156499599954892342}
 --- !u!114 &7064654583942029378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,5 +673,20 @@ GameObject:
 --- !u!1 &2410134525752592186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5978817022860012375, guid: 22ebbc3112a687a4fb92744576bfafcf, type: 3}
+  m_PrefabInstance: {fileID: 8325892317735185517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1484542230887119608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7426899472129840789, guid: 22ebbc3112a687a4fb92744576bfafcf, type: 3}
+  m_PrefabInstance: {fileID: 8325892317735185517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5169615428456174407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3762101238909386538, guid: 22ebbc3112a687a4fb92744576bfafcf, type: 3}
+  m_PrefabInstance: {fileID: 8325892317735185517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5156499599954892342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3748142657956952667, guid: 22ebbc3112a687a4fb92744576bfafcf, type: 3}
   m_PrefabInstance: {fileID: 8325892317735185517}
   m_PrefabAsset: {fileID: 0}
