@@ -102,6 +102,7 @@ public class PlayerManager : MonoBehaviour
         _toturial = GetComponent<Toturial>();
         _toturial.ShowKey(Toturial.Keys.MoveKey);
         _playerAudioManager = GetComponent<PlayerAudioManager>();
+        _playerAudioManager.playMoveTile();
         InitialSprite = PlayerRenderer.GetComponent<SpriteRenderer>().sprite;
     }
 
@@ -394,6 +395,7 @@ public class PlayerManager : MonoBehaviour
             Destroy(_currentHoldTile);
             _currentHoldTile = null;
         }
+        _playerAudioManager.playGotHit();
     }
 
     private void hidePlayer()

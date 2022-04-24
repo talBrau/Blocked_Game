@@ -348,9 +348,36 @@
             "id": "3454fff1-f944-4ba8-8996-e138ade01820",
             "actions": [
                 {
+                    "name": "StopAnim",
+                    "type": "Button",
+                    "id": "2dea2851-4afb-4796-a3d9-caa58177d6b9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeSlide",
+                    "type": "Button",
+                    "id": "fe3ef833-9b59-43e1-9ca5-dcb71e110f6c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "LoadGame",
                     "type": "Button",
                     "id": "f360b037-c76e-493a-9736-1a56fb5c8356",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadGameSkip",
+                    "type": "Button",
+                    "id": "7d457130-a955-4791-a1c5-7531c5b841b8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -360,8 +387,30 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2bfd7258-de76-4831-9d92-268ca496b3ca",
+                    "id": "a6212d62-0036-498c-a428-3582e04663ee",
                     "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopAnim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfad21b9-6e2a-4a99-bc48-281c13f2c3ba",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeSlide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2bfd7258-de76-4831-9d92-268ca496b3ca",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -377,6 +426,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LoadGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02b6778c-42db-4fb2-9706-5af17aed38ff",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadGameSkip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
