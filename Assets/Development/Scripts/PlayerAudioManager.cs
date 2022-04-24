@@ -7,6 +7,7 @@ public class PlayerAudioManager : MonoBehaviour
     [SerializeField] private AudioSource buyTile;
     [SerializeField] private AudioSource moveTile;
     [SerializeField] private AudioSource reviveFriend;
+    [SerializeField] private AudioSource GotHit;
 
     #endregion
 
@@ -24,5 +25,10 @@ public class PlayerAudioManager : MonoBehaviour
     public void playReviveFriend()
     {
         reviveFriend.Play(0);
+    }
+    
+    public void playGotHit()
+    {
+        GotHit.Play(0);
     }
 }

@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
         if (_readyCounter == playersSpawnManager.playersSpawned)
         {
             onBoarding = false;
+            GetComponent<AudioSource>().Play();
             monsterManager.GetComponent<MonsterManager>().stopOnBoarding();
         }
     }
