@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMoveTransparency: 0.5
-  tileHealthDecrease: 0.1
+  tileHealthDecrease: 0.3
   tilesSprites:
   - {fileID: -8389765525189104776, guid: 1e921e357b69dd14ca2bd00e46462785, type: 3}
   - {fileID: 8111585485536807058, guid: 7bfc460b05eea3c4a91b6dfa0cacb409, type: 3}

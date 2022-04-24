@@ -177,12 +177,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1308711169}
     - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
-      propertyPath: maxWaitTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: minWaitTime
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8851802570420706187, guid: afd61d320980d4ea8a4f956c2b4a8ed5, type: 3}
       propertyPath: minSpawnRate

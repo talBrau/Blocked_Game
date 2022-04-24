@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449d1b13d0eb445efb98940935e70fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpwan: 0
+  minWaitTime: 5
+  maxWaitTime: 7
   monsterPrefab: {fileID: 4538544647189875055, guid: 4a4d7213f648a4e66ba7107892b49452, type: 3}
+  timeTillSpawnChange: 20
+  minSpawnRate: 0
+  baseObject: {fileID: 0}
   players: []

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ExplodeScript : MonoBehaviour
@@ -5,6 +6,7 @@ public class ExplodeScript : MonoBehaviour
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float radius;
     [SerializeField] private float explosionForce;
+    [SerializeField] private AudioSource boomSfx;
 
     public void explodeTile()
     {
@@ -24,6 +26,14 @@ public class ExplodeScript : MonoBehaviour
                 rb.AddForce(dir*explosionForce);
             }
         }
+
+        boomSfx.Play();
+        GetComponent<SpriteRenderer>().sprite = null;
+        Invoke("waitDestroy",0.5f);
+    }
+
+    private void waitDestroy()
+    {
         Destroy(gameObject);
     }
 }
