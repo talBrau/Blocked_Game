@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         GameOver -= showGameOverScreen;
         ResetGame -= loadScene;
-        Bale += showGameWonScreen;
+        Bale -= showGameWonScreen;
     }
 
     private void Awake()
@@ -105,12 +105,14 @@ public class GameManager : MonoBehaviour
     private void showGameWonScreen()
     {
         gameWonScore.text = Math.Round(Score).ToString();
-        if (Score >=prevHighScore)
+        prevHighScore= PlayerPrefs.GetInt("highscore", 0);
+        print(prevHighScore);
+        if (Score >= prevHighScore)
         {
-            PlayerPrefs.SetInt("highscore", (int) math.round(Score));
             PrevHighScore.text = prevHighScore.ToString();
+            PlayerPrefs.SetInt("highscore", (int) math.round(Score));
             newHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
-            // gameWonHighScore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
+            gameWonHighScore.text = newHighScore.text;
             gameWonNewHighScoreUI.SetActive(true);
         }
         else

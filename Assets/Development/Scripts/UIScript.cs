@@ -20,7 +20,7 @@ public class UIScript : MonoBehaviour
         score.text = math.round(GameManager.Score).ToString();
         if (GameManager.Score > PlayerPrefs.GetInt("highscore", 0))
         {
-            GameManager.prevHighScore = PlayerPrefs.GetInt("highscore", 0);
+            // GameManager.prevHighScore = PlayerPrefs.GetInt("highscore", 0);
             Highscore.text = math.round(GameManager.Score).ToString();
         }
         else
