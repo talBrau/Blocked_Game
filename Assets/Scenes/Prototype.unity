@@ -890,8 +890,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916d8da4672e74d419dc1fb8fe2f122e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreRate: 2
+  scoreWhenKilling: 10
   wallTilePrice: 10
-  explodingTilePrice: 5
+  explodingTilePrice: 20
   monsterManager: {fileID: 1070295335}
   playersSpawnManager: {fileID: 537211665}
   gameWonScore: {fileID: 1266914518}
@@ -93540,7 +93542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1151530574
 MonoBehaviour:
   m_ObjectHideFlags: 0
