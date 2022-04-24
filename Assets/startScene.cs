@@ -6,6 +6,7 @@ public class startScene : MonoBehaviour
 {
     [SerializeField] private GameObject startAnim;
     [SerializeField] private GameObject startButton;
+    [SerializeField] private GameObject BG;
     [SerializeField] private GameObject insruction0;
     [SerializeField] private GameObject insruction1;
 
@@ -20,6 +21,7 @@ public class startScene : MonoBehaviour
         }
         startAnim.GetComponent<Animator>().SetTrigger("SetDark");
         startButton.GetComponent<Animator>().SetTrigger("SetDark");
+        BG.GetComponent<AudioSource>().Play();
         Invoke("disableObjects",1f);
 
     }
@@ -45,6 +47,7 @@ public class startScene : MonoBehaviour
             return;
         }
         insruction0.GetComponent<Animator>().SetTrigger("SetDark");
+        BG.GetComponent<AudioSource>().Play();
         Invoke("disableObjects2",1f);
     }
     

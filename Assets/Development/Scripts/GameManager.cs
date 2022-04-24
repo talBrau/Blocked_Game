@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameWonHighScore;
     [SerializeField] private TextMeshProUGUI PrevHighScore;
     [SerializeField] private TextMeshProUGUI newHighScore;
+    [SerializeField] private GameObject startButton;
     #endregion
 
     #region Fields
@@ -82,6 +83,8 @@ public class GameManager : MonoBehaviour
     {
         if (!onBoarding && !GameOverFlag)
         {
+            if (startButton.activeSelf)
+                startButton.SetActive(false);
             Score += Time.deltaTime;
         }
     }
@@ -129,6 +132,7 @@ public class GameManager : MonoBehaviour
     public void increaseReadyCounter()
     {
         _readyCounter += 1;
+        
         if (_readyCounter == playersSpawnManager.playersSpawned)
         {
             onBoarding = false;
