@@ -398,6 +398,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e4aa6958-e897-4357-9633-e836aa56f5d7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopAnim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bfad21b9-6e2a-4a99-bc48-281c13f2c3ba",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -433,6 +444,17 @@
                     "name": "",
                     "id": "02b6778c-42db-4fb2-9706-5af17aed38ff",
                     "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadGameSkip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e1c3536-c107-4fc2-ad78-1f1beb63c76c",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

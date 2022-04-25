@@ -88,8 +88,7 @@ public class TileScript : MonoBehaviour
         transform.position = tilePos;
 
         /// TODO : FIX!!!
-        if (_wallsTilemap.HasTile(_wallsTilemap.WorldToCell(transform.position))
-            || !_groundTilemap.HasTile(_groundTilemap.WorldToCell(transform.position - Vector3.up)))
+        if (_wallsTilemap.HasTile(_wallsTilemap.WorldToCell(transform.position)))
         {
             _canPlace = false;
             GetComponent<SpriteRenderer>().color = new Color(1,0,0,onMoveTransparency);
